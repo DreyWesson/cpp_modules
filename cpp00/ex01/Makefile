@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+         #
+#    By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 18:56:51 by oduwoledare       #+#    #+#              #
-#    Updated: 2023/10/27 19:14:14 by oduwoledare      ###   ########.fr        #
+#    Updated: 2023/10/27 21:05:58 by doduwole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = megaphone
+NAME = phonebook
 
 
 # FLAGS
