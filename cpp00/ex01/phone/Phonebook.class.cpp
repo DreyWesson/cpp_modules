@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 19:48:32 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/28 20:44:56 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Phonebook::~Phonebook()
     std::cout << "Phonebook destructor called!" << std::endl;
 }
 
-void Phonebook::parse_input(std::string prop, int *flag, std::string type)
+void Phonebook::_parse_input(std::string prop, int *flag, std::string type)
 {
     while (std::cin.good() && (prop.empty() || *flag == 1))
     {
@@ -31,7 +31,7 @@ void Phonebook::parse_input(std::string prop, int *flag, std::string type)
         getline(std::cin, prop);
         if (prop.empty())
         {
-            print_err("Invalid input: please enter non empty value");
+            _print_err("Invalid input: please enter non empty value");
             continue;
         }
         if ((!type.compare("First name") && _contacts[_id % 8].set_fname(prop) == "")
@@ -39,13 +39,13 @@ void Phonebook::parse_input(std::string prop, int *flag, std::string type)
             || (!type.compare("Nickname") && _contacts[_id % 8].set_nickname(prop) == "")
             || (!type.compare("Phone num") && _contacts[_id % 8].set_phone_num(prop) == "")
         )
-            input_err(flag, type);
+            _input_err(flag, type);
         else if (!type.compare("Darkest secret"))
             _contacts[_id % 8].set_darkest_secret(prop);
     }
 }
 
-void Phonebook::add_contact()
+void Phonebook::_add_contact()
 {
     int flag = 0;
     std::string first_name = "";
@@ -54,18 +54,18 @@ void Phonebook::add_contact()
     std::string darkest_secret = "";
     std::string phone_number = "";
 
-    parse_input(first_name, &flag, "First name");
-    parse_input(last_name, &flag, "Last name");
-    parse_input(nickname, &flag, "Nickname");
-    parse_input(phone_number, &flag, "Phone num");
-    parse_input(darkest_secret, &flag, "Darkest secret");
+    _parse_input(first_name, &flag, "First name");
+    _parse_input(last_name, &flag, "Last name");
+    _parse_input(nickname, &flag, "Nickname");
+    _parse_input(phone_number, &flag, "Phone num");
+    _parse_input(darkest_secret, &flag, "Darkest secret");
 
     this->_id++;
     std::cout << "\033[32m""Contact added!!!" << std::endl;
     std::cin.clear();
 }
 
-void    Phonebook::search_contact()
+void    Phonebook::_search_contact()
 {
     int id = 0;
     std::string str;
@@ -80,4 +80,24 @@ void    Phonebook::search_contact()
         _print_contact(id);
     std::cin.clear();
     std::cin.ignore(1000, '\n');
+}
+
+void    Phonebook::handle_phonebook()
+{
+    std::string cmd;
+
+    this->_user_manual();
+    std::cout << "\033[32m""> ""\033[0m";
+    while (getline(std::cin, cmd))
+    {
+    if (!cmd.compare("ADD") || !cmd.compare("add"))
+        this->_add_contact();
+    else if (!cmd.compare("SEARCH") || !cmd.compare("search"))
+        this->_search_contact();
+    else if (!cmd.compare("EXIT") || !cmd.compare("exit"))
+        break;
+    else
+        this->_print_err("   cmd not found. Pls, use the manual!");
+            std::cout << "\033[32m""> ""\033[0m";
+    }
 }

@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:27:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 18:25:49 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/28 20:12:02 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 #define CONTACT_CLASS_H
 
 #include <iostream>
+#include <string>
+#include <cstring>
 #include <iomanip>
 
 class Contact {

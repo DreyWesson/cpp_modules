@@ -6,11 +6,11 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:31:03 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/28 19:42:30 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/28 20:46:12 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
+#include "../phone/Phonebook.class.hpp"
 
 void Phonebook::_print_contact(int id)
 {
@@ -46,7 +46,7 @@ void    Phonebook::_view_contacts() const
     std::cout   << " ------------------------------------------- \n"<< std::endl;
 }
 
-void        Phonebook::user_manual()
+void        Phonebook::_user_manual()
 {
     std::cout << "#######################################" << std::endl;
     std::cout << "#                                     #" << std::endl;
@@ -59,15 +59,15 @@ void        Phonebook::user_manual()
 
 }
 
-void    Phonebook::input_err(int *flag, std::string type)
+void    Phonebook::_input_err(int *flag, std::string type)
 {
     std::cout << "\033[31m""Error:""\033[0m" << std::endl;
-    std::cout << "Invalid input: please enter a valid ""\033[33m"<< type << "\033[0m" << std::endl;
+    std::cout << "  Invalid input: please enter a valid ""\033[33m"<< type << "\033[0m" << std::endl;
     *flag = 1;
 }
 
-void    Phonebook::print_err(std::string msg)
+void    Phonebook::_print_err(std::string msg)
 {
     std::cout << "\033[31m""Error:""\033[0m" << std::endl;
-    std::cout <<  msg << std::endl;
+    std::cout << "  " <<  msg << std::endl;
 }

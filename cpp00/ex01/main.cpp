@@ -6,12 +6,12 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:58:53 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 19:45:14 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/28 20:47:58 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
-#include "Phonebook.class.hpp"
+#include "contact/Contact.class.hpp"
+#include "phone/Phonebook.class.hpp"
 /// @implements
 // void setters(Contact *contact)
 // {
@@ -71,20 +71,7 @@
 int main(void)
 {
     Phonebook Phonebook;
-    std::string str;
-    Phonebook.user_manual();
-    std::cout << "\033[32m""> ""\033[0m";
-    while (getline(std::cin, str))
-    {
-        if (!str.compare("ADD") || !str.compare("add"))
-            Phonebook.add_contact();
-        else if (!str.compare("SEARCH") || !str.compare("search"))
-            Phonebook.search_contact();
-        else if (!str.compare("EXIT") || !str.compare("exit"))
-            break;
-        else
-            Phonebook.print_err("   cmd not found. Pls, use the manual!");
-        std::cout << "\033[32m""> ""\033[0m";
-    }
+
+    Phonebook.handle_phonebook();
     return (0);
 }

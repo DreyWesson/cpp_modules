@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+         #
+#    By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 18:56:51 by oduwoledare       #+#    #+#              #
-#    Updated: 2023/10/27 21:05:58 by doduwole         ###   ########.fr        #
+#    Updated: 2023/10/28 19:55:08 by oduwoledare      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ RM = rm -rf
 
 
 # DIRECTORIES
-SRC =	$(wildcard *.cpp)
+SRC =	$(wildcard *.cpp **/*.cpp)
 OBJ_DIR = obj
 SRC_DIR = src
 INC_DIR = inc
