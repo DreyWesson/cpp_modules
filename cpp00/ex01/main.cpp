@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:58:53 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 17:40:51 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 19:45:14 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ int main(void)
         else if (!str.compare("EXIT") || !str.compare("exit"))
             break;
         else
-            std::cout << "cmd not found. Pls use the manual!" << std::endl;
+            Phonebook.print_err("   cmd not found. Pls, use the manual!");
         std::cout << "\033[32m""> ""\033[0m";
     }
     return (0);

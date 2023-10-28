@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Phonebook.class.hpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 17:43:54 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 19:43:26 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,20 @@ class Phonebook
 {
 private:
     Contact _contacts[8];
-    int    _index;
+    int    _id;
+    
+    void    _print_contact(int id);
+    void    _view_contacts() const;
 
 public:
     Phonebook();
     ~Phonebook();
     void    add_contact();
     void    search_contact();
-    void    view_contact() const;
     void    user_manual();
     void    parse_input(std::string prop, int *flag, std::string type);
-    void    print_err(int *flag, std::string type);
+    void    input_err(int *flag, std::string type);
+    void    print_err(std::string msg);
 };
 
 #endif
