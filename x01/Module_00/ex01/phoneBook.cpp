@@ -25,10 +25,11 @@ void Phonebook::add_contact()
         std::cout << "First name> ";
         getline(std::cin, first_name);
         if (first_name.empty())
-            std::cout << "INVALID INPUT: please enter non empty name!!" << std::endl;
+            std::cout << "Invalid input: please enter non empty name!!" << std::endl;
+            std::cout << _index % 8  << std::endl;
         if (_contacts[_index % 8].set_first_name(first_name) == "")
         {
-            std::cout << "INVALID INPUT: please enter a valid name!!" << std::endl;
+            std::cout << "Invalid input: please enter a valid name!" << std::endl;
             flag = 1;
         }
     }
@@ -86,7 +87,7 @@ void Phonebook::add_contact()
     }
 
     this->_index++;
-    std::cout << "Contact added!!!" << std::endl;
+    std::cout << "\033[32m""Contact added!!!" << std::endl;
     std::cin.clear();
 }
 
