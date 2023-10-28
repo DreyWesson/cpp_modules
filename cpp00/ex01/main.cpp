@@ -6,11 +6,12 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:58:53 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/27 22:53:07 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:40:51 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.class.hpp"
+#include "Phonebook.class.hpp"
 /// @implements
 // void setters(Contact *contact)
 // {
@@ -59,10 +60,31 @@
 // Once a command has been correctly executed, the program waits for another one. It
 // stops when the user inputs EXIT
 
-int main(void) {
-    Contact contact;
+// int main(void) {
+//     Contact contact;
     
-    // setters(&contact);
-    // getters(contact);
+//     // setters(&contact);
+//     // getters(contact);
+//     return (0);
+// }
+
+int main(void)
+{
+    Phonebook Phonebook;
+    std::string str;
+    Phonebook.user_manual();
+    std::cout << "\033[32m""> ""\033[0m";
+    while (getline(std::cin, str))
+    {
+        if (!str.compare("ADD") || !str.compare("add"))
+            Phonebook.add_contact();
+        else if (!str.compare("SEARCH") || !str.compare("search"))
+            Phonebook.search_contact();
+        else if (!str.compare("EXIT") || !str.compare("exit"))
+            break;
+        else
+            std::cout << "cmd not found. Pls use the manual!" << std::endl;
+        std::cout << "\033[32m""> ""\033[0m";
+    }
     return (0);
 }

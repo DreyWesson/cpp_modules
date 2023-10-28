@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:55:50 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/27 22:20:00 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 17:42:14 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,43 +20,96 @@ Contact::~Contact(void) {
     return ;    
 }
 
-std::string Contact::get_lname(void) {
-    return this->_lname;
+std::string Contact::get_fname() const
+{
+    return (this->_fname);
 }
 
-std::string Contact::get_fname(void) {
-    return this->_fname;
+std::string Contact::get_lname() const
+{
+    return (this->_lname);
 }
 
-std::string Contact::get_nname(void) {
-    return this->_nname;
+std::string Contact::get_nickname() const
+{
+    return (this->_nickname);
 }
 
-std::string Contact::get_phone_num(void) {
-    return this->_phone_num;
-}
-std::string Contact::get_dark_secret(void) {
-    return this->_dark_secret;
+std::string Contact::get_phone_num() const
+{
+    return (this->_phone_num);
 }
 
-
-
-void Contact::set_lname(std::string str) {
-    this->_lname = str;
+std::string Contact::get_darkest_secret() const
+{
+    return (this->_darkest_secret);
 }
 
-void Contact::set_fname(std::string str) {
-    this->_fname = str;
+std::string Contact::_truncate(std::string val)
+{
+    if (val.length() > 10)
+    {
+        val[9] = '.';
+        val.erase(10, val.length() - 10);
+    }
+    return (val);
 }
 
-void Contact::set_nname(std::string str) {
-    this->_nname = str;
+std::string Contact::_parse_str(std::string val, std::string type)
+{
+    if (val == "")
+        return ("");
+    if (!type.compare("str"))
+    {
+        for (size_t i = 0; i < val.size(); i++)
+        {
+            if (!isalpha(val[i]))
+            {
+                if (isspace(val[i]))
+                    continue;
+                return ("");
+            }
+        }
+    }
+    return (_truncate(val));
 }
 
-void Contact::set_phone_num(std::string str) {
-    this->_phone_num = str;
+std::string Contact::_parse_digit(std::string val)
+{
+    if (val == "")
+        return ("");
+
+    for (size_t i = 0; i < val.size(); i++)
+        if (!isdigit(val[i]))
+            return ("");
+    return (_truncate(val));
 }
 
-void Contact::set_dark_secret(std::string str) {
-    this->_dark_secret = str;
+std::string Contact::set_fname(std::string first_name)
+{
+    this->_fname = this->_parse_str(first_name, "str");
+    return (this->_fname);
+}
+
+std::string Contact::set_lname(std::string last_name)
+{
+    this->_lname = this->_parse_str(last_name, "str");
+    return (this->_lname);
+}
+
+std::string Contact::set_nickname(std::string nickname)
+{
+    this->_nickname = this->_parse_str(nickname, "str");
+    return (this->_nickname);
+}
+
+std::string Contact::set_phone_num(std::string phone_number)
+{
+    this->_phone_num = this->_parse_digit(phone_number);
+    return (this->_phone_num);
+}
+
+void Contact::set_darkest_secret(std::string darkest_secret)
+{
+    this->_darkest_secret = this->_parse_str(darkest_secret, "mix");
 }
