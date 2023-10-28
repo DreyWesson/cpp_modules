@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:27:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 17:52:11 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 18:25:49 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Contact {
         std::string _darkest_secret;
         
         std::string _parse_str(std::string val, std::string type);
-        std::string _parse_digit(std::string val);
         std::string _truncate(std::string);
 
     public:

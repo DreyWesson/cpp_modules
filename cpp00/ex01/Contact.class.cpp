@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:55:50 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/28 17:42:14 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/10/28 18:25:27 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,17 @@ std::string Contact::_parse_str(std::string val, std::string type)
 {
     if (val == "")
         return ("");
-    if (!type.compare("str"))
-    {
         for (size_t i = 0; i < val.size(); i++)
         {
-            if (!isalpha(val[i]))
+            if (!type.compare("str") && !isalpha(val[i]))
             {
-                if (isspace(val[i]))
-                    continue;
-                return ("");
+                    if (isspace(val[i]))
+                        continue;
+                    return ("");
             }
+            else if (!type.compare("digit") && !isdigit(val[i]))
+                return ("");
         }
-    }
-    return (_truncate(val));
-}
-
-std::string Contact::_parse_digit(std::string val)
-{
-    if (val == "")
-        return ("");
-
-    for (size_t i = 0; i < val.size(); i++)
-        if (!isdigit(val[i]))
-            return ("");
     return (_truncate(val));
 }
 
@@ -105,7 +93,7 @@ std::string Contact::set_nickname(std::string nickname)
 
 std::string Contact::set_phone_num(std::string phone_number)
 {
-    this->_phone_num = this->_parse_digit(phone_number);
+    this->_phone_num = this->_parse_str(phone_number, "digit");
     return (this->_phone_num);
 }
 
