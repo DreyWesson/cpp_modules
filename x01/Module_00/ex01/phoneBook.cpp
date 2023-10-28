@@ -133,11 +133,15 @@ void    Phonebook::ft_display_contact() const
 
 void        Phonebook::help_menu()
 {
-    std::cout << "|---------Welcome to the awesome Phonebook ☎📔---------|" << std::endl;
-    std::cout << "|                        1-ADD                          |" << std::endl;
-    std::cout << "|                        2-SEARCH                       |" << std::endl;
-    std::cout << "|                        3-EXIT                         |" << std::endl;
-    std::cout << "|-------------------------------------------------------|" << std::endl;
+    std::cout << "#######################################" << std::endl;
+    std::cout << "#                                     #" << std::endl;
+    std::cout << "#     Welcome to awesome Phonebook    #" << std::endl;
+    std::cout << "#     01. ""\033[32m""ADD" "\033[0m""                         #" << std::endl;
+    std::cout << "#     02. ""\033[32m""SEARCH" "\033[0m""                      #" << std::endl;
+    std::cout << "#     03. ""\033[31m""EXIT" "\033[0m""                        #" << std::endl;
+    std::cout << "#                                     #" << std::endl;
+    std::cout << "#######################################" << std::endl;
+
 }
 
 int main(void)

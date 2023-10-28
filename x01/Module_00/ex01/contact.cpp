@@ -33,6 +33,16 @@ std::string Contact::get_darkest_secret() const
     return (this->_darkest_secret);
 }
 
+std::string Contact::_truncate(std::string val)
+{
+    if (val.length() > 10)
+    {
+        val[9] = '.';
+        val.erase(10, val.length() - 10);
+    }
+    return (val);
+}
+
 std::string Contact::_parse_str(std::string val, std::string type)
 {
     if (val == "")
@@ -40,20 +50,16 @@ std::string Contact::_parse_str(std::string val, std::string type)
     if (!type.compare("str"))
     {
         for (size_t i = 0; i < val.size(); i++)
+        {
             if (!isalpha(val[i]))
             {
                 if (isspace(val[i]))
                     continue;
-                else
-                    return ("");
+                return ("");
             }
+        }
     }
-    if (val.length() > 10)
-    {
-        val[9] = '.';
-        val.erase(10, val.length() - 10);
-    }
-    return (val);
+    return (_truncate(val));
 }
 
 std::string Contact::_parse_digit(std::string val)
@@ -64,12 +70,7 @@ std::string Contact::_parse_digit(std::string val)
     for (size_t i = 0; i < val.size(); i++)
         if (!isdigit(val[i]))
             return ("");
-    if (val.length() > 10)
-    {
-        val[9] = '.';
-        val.erase(10, val.length() - 10);
-    }
-    return (val);
+    return (_truncate(val));
 }
 
 std::string Contact::set_first_name(std::string first_name)

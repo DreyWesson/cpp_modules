@@ -18,6 +18,7 @@ private:
 
     std::string _parse_str(std::string val, std::string type);
     std::string _parse_digit(std::string val);
+    std::string _truncate(std::string);
 
 public:
     Contact();
