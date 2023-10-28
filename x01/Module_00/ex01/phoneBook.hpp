@@ -15,8 +15,8 @@ public:
     ~Phonebook();
     void    add_contact();
     void    search_contact();
-    void    ft_display_contact() const;
-    void    help_menu();
+    void    view_contact() const;
+    void    user_manual();
 };
 
 #endif
