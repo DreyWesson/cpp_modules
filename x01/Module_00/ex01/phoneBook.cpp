@@ -16,7 +16,7 @@ void Phonebook::add_contact()
     int flag = 0;
     std::string first_name = "";
     std::string last_name = "";
-    std::string nickename = "";
+    std::string nickname = "";
     std::string darkest_secret = "";
     std::string phone_number = "";
 
@@ -27,7 +27,7 @@ void Phonebook::add_contact()
         getline(std::cin, first_name);
         if (first_name.empty())
             std::cout << "INVALID INPUT: please enter non empty name!!" << std::endl;
-        if (_contacts[_index % 8].set_first_name(first_name) == 1)
+        if (_contacts[_index % 8].set_first_name(first_name) == "")
         {
             std::cout << "INVALID INPUT: please enter a valid name!!" << std::endl;
             flag = 1;
@@ -41,21 +41,21 @@ void Phonebook::add_contact()
         getline(std::cin, last_name);
         if (last_name.empty())
             std::cout << "INVALID INPUT: please enter non empty name!!" << std::endl;
-        if (_contacts[_index % 8].set_last_name(last_name) == 1)
+        if (_contacts[_index % 8].set_last_name(last_name) == "")
         {
             std::cout << "INVALID INPUT: please enter a valid name!!" << std::endl;
             flag = 1;
         }
     }
 
-    while (std::cin.good() && (nickename.empty() || flag == 1))
+    while (std::cin.good() && (nickname.empty() || flag == 1))
     {
         flag  = 0;
         std::cout << "Nickname> ";
-        getline(std::cin, nickename);
-        if (nickename.empty())
+        getline(std::cin, nickname);
+        if (nickname.empty())
             std::cout << "INVALID INPUT: please enter non empty name!!" << std::endl;
-        if(_contacts[_index % 8].set_nickename(nickename) == 1)
+        if(_contacts[_index % 8].set_nickname(nickname) == "")
         {
             std::cout << "INVALID INPUT: please enter a valid name" << std::endl;
             flag = 1;
@@ -69,7 +69,7 @@ void Phonebook::add_contact()
         getline(std::cin, phone_number);
         if (phone_number.empty())
             std::cout << "INVALID INPUT: please enter non empty number!!" << std::endl;
-        if(_contacts[_index % 8].set_phone_number(phone_number) == 1)
+        if(_contacts[_index % 8].set_phone_number(phone_number) == "")
         {
             std::cout << "INVALID INPUT: please enter a valid number" << std::endl;
             flag = 1;
@@ -106,7 +106,7 @@ void    Phonebook::search_contact()
     {
         std::cout << "First name: " << _contacts[index_search].get_first_name() << std::endl;
         std::cout << "Last name: " << _contacts[index_search].get_last_name() << std::endl;
-        std::cout << "nickename: " << _contacts[index_search].get_nickename() << std::endl;
+        std::cout << "nickename: " << _contacts[index_search].get_nickname() << std::endl;
         std::cout << "Phone number: " << _contacts[index_search].get_phone_number() << std::endl;
         std::cout << "Darkest secret: " << _contacts[index_search].get_darkest_secret() << std::endl;
     }
@@ -126,7 +126,7 @@ void    Phonebook::ft_display_contact() const
         std::cout << '|' << std::setw(10) << i;
         std::cout << '|' << std::setw(10) << _contacts[i].get_first_name();
         std::cout << '|' << std::setw(10) << _contacts[i].get_last_name();
-        std::cout << '|' << std::setw(10) << _contacts[i].get_nickename();
+        std::cout << '|' << std::setw(10) << _contacts[i].get_nickname();
         std::cout << '|' << std::endl;
     }
 }

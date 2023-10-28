@@ -18,9 +18,9 @@ std::string Contact::get_last_name() const
     return (this->_last_name);
 }
 
-std::string Contact::get_nickename() const
+std::string Contact::get_nickname() const
 {
-    return (this->_nickename);
+    return (this->_nickname);
 }
 
 std::string Contact::get_phone_number() const
@@ -33,95 +33,70 @@ std::string Contact::get_darkest_secret() const
     return (this->_darkest_secret);
 }
 
-int Contact::set_first_name(std::string first_name)
+std::string Contact::_parse_str(std::string val, std::string type)
 {
-    if (first_name == "")
-        return (1);
-    for (size_t i = 0; i < first_name.size(); i++)
-        if (!isalpha(first_name[i]))
-        {
-            if (isspace(first_name[i]))
-                continue;
-            else
-                return (1);
-        }
-    if (first_name.length() > 10)
+    if (val == "")
+        return ("");
+    if (!type.compare("str"))
     {
-        first_name[9] = '.';
-        first_name.erase(10, first_name.length() - 10);
+        for (size_t i = 0; i < val.size(); i++)
+            if (!isalpha(val[i]))
+            {
+                if (isspace(val[i]))
+                    continue;
+                else
+                    return ("");
+            }
     }
-    this->_first_name = first_name;
-    return (0);
+    if (val.length() > 10)
+    {
+        val[9] = '.';
+        val.erase(10, val.length() - 10);
+    }
+    return (val);
 }
 
-int Contact::set_last_name(std::string last_name)
+std::string Contact::_parse_digit(std::string val)
 {
-    if (last_name == "")
-        return (1);
-    for (size_t i = 0; i < last_name.size(); i++)
-        if (!isalpha(last_name[i]))
-        {
-            if (isspace(last_name[i]))
-                continue;
-            else
-                return (1);
-        }
-    if (last_name.length() > 10)
+    if (val == "")
+        return ("");
+
+    for (size_t i = 0; i < val.size(); i++)
+        if (!isdigit(val[i]))
+            return ("");
+    if (val.length() > 10)
     {
-        last_name[9] = '.';
-        last_name.erase(10, last_name.length() - 10);
+        val[9] = '.';
+        val.erase(10, val.length() - 10);
     }
-    this->_last_name = last_name;
-    return (0);
+    return (val);
 }
 
-int Contact::set_nickename(std::string nickename)
+std::string Contact::set_first_name(std::string first_name)
 {
-    if (nickename == "")
-        return (1);
-    for (size_t i = 0; i < nickename.size(); i++)
-        if (!isalpha(nickename[i]))
-        {
-            if (isspace(nickename[i]))
-                continue;
-            else
-                return (1);
-        }
-    if (nickename.length() > 10)
-    {
-        nickename[9] = '.';
-        nickename.erase(10, nickename.length() - 10);
-    }
-    this->_nickename = nickename;
-    return (0);
+    this->_first_name = this->_parse_str(first_name, "str");
+    return (this->_first_name);
 }
 
-int Contact::set_phone_number(std::string phone_number)
+std::string Contact::set_last_name(std::string last_name)
 {
-    if (phone_number == "")
-        return (1);
-
-    for (size_t i = 0; i < phone_number.size(); i++)
-        if (!isdigit(phone_number[i]))
-            return (1);
-    if (phone_number.length() > 10)
-    {
-        phone_number[9] = '.';
-        phone_number.erase(10, phone_number.length() - 10);
-    }
-    this->_phone_number = phone_number;
-    return (0);
+    this->_last_name = this->_parse_str(last_name, "str");
+    return (this->_last_name);
 }
 
-int Contact::set_darkest_secret(std::string darkest_secret)
+std::string Contact::set_nickname(std::string nickname)
 {
-    if (darkest_secret == "")
-        return (1);
-    if (darkest_secret.length() > 10)
-    {
-        darkest_secret[9] = '.';
-        darkest_secret.erase(10, darkest_secret.length() - 10);
-    }
-    this->_darkest_secret = darkest_secret;
-    return (0);
+    this->_nickname = this->_parse_str(nickname, "str");
+    return (this->_nickname);
+}
+
+std::string Contact::set_phone_number(std::string phone_number)
+{
+    this->_phone_number = this->_parse_digit(phone_number);
+    return (this->_phone_number);
+}
+
+void Contact::set_darkest_secret(std::string darkest_secret)
+{
+    this->_darkest_secret = this->_parse_str(darkest_secret, "mix");
 }
