@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:58:53 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 01:51:02 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 08:17:03 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int main(void)
 {
-    PhoneBook PhoneBook;
+    PhoneBook phonebook;
 
-    PhoneBook.handle_phone_book();
+    phonebook.handle_phone_book();
     return (0);
 }

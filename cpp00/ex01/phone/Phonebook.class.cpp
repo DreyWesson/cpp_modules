@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 02:29:06 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 08:31:17 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,12 @@ void    PhoneBook::_search_contact(void) const
     if (std::cin.fail() || (id < 0) || (id > 7) || str.length() > 1)
         std::cout << "Invalid input!" << std::endl;
     else
-        _print_contact(id);
+    {
+        if (_contacts[id].get_fname() == "" || _contacts[id].get_lname() == "")
+            _print_err("Phone index doesn't exit yet. Add more contact");
+        else
+            _print_contact(id);
+    }
     std::cin.clear();
     std::cin.ignore(10000, '\n');
 }
@@ -68,13 +73,13 @@ void    PhoneBook::handle_phone_book(void)
     while (getline(std::cin, cmd))
     {
         if (!cmd.compare("ADD") || !cmd.compare("add"))
-            this->_add_contact();
+            _add_contact();
         else if (!cmd.compare("SEARCH") || !cmd.compare("search"))
-            this->_search_contact();
+            _search_contact();
         else if (!cmd.compare("EXIT") || !cmd.compare("exit"))
             break;
         else
-            this->_print_err("   cmd not found. Pls, use the manual!");
+            _print_err("   cmd not found. Pls, use the manual!");
                 std::cout << "\033[32m""> ""\033[0m";
     }
 }
