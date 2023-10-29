@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 09:51:23 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 20:16:05 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ void    PhoneBook::_add_contact()
     _parse_input(phone_number, &flag, "Phone num");
     _parse_input(darkest_secret, &flag, "Darkest secret");
 
+
     this->_id++;
-    std::cout << "\033[32m""Contact added!!!" << std::endl;
+    if (std::cin.good())
+        std::cout << "\033[32m""Contact added!!!" << std::endl;
     std::cin.clear();
 }
 
@@ -75,11 +77,11 @@ void    PhoneBook::handle_phone_book(void)
     std::cout << "\033[32m""> ""\033[0m";
     while (getline(std::cin, cmd))
     {
-        if (!cmd.compare("ADD") || !cmd.compare("add"))
+        if (!cmd.compare("ADD"))
             _add_contact();
-        else if (!cmd.compare("SEARCH") || !cmd.compare("search"))
+        else if (!cmd.compare("SEARCH"))
             _search_contact();
-        else if (!cmd.compare("EXIT") || !cmd.compare("exit"))
+        else if (!cmd.compare("EXIT"))
             break;
         else
             _print_err("   cmd not found. Pls, use the manual!");

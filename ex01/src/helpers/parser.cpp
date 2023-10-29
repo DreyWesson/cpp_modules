@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 02:06:43 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/29 11:35:47 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 20:11:46 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void PhoneBook::_parse_input(std::string prop, int *flag, std::string type)
         *flag = 0;
         std::cout << type << "> ";
         getline(std::cin, prop);
-        if (prop.empty())
+        if (std::cin.good() && prop.empty())
             _print_err("Invalid input: please enter non empty value");
         else
             _input_router(type, prop, flag);

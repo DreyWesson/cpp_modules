@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/29 10:18:28 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/29 14:56:42 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 20:25:22 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,15 @@ int	Account::checkAmount(void) const
 
 void	Account::_displayTimestamp(void)
 {
-	time_t	now;
+	time_t t = time(NULL);
 
-	now = time(NULL);
-	std::cout << std::put_time(localtime(&now), "[%Y%m%d_%H%M%S] ");
+	tm *local_time = localtime(&t);
+	std::cout << "[" << local_time->tm_year + 1900;
+	std::cout << std::setw(2) << std::setfill('0') << local_time->tm_mon;
+	std::cout << std::setw(2) << std::setfill('0') << local_time->tm_mday;
+	std::cout << "_" << std::setw(2) << std::setfill('0') << local_time->tm_hour;
+	std::cout << std::setw(2) << std::setfill('0') << local_time->tm_min;
+	std::cout << std::setw(2) << std::setfill('0') << local_time->tm_sec << "] ";
 }
 
 void	Account::displayAccountsInfos(void)

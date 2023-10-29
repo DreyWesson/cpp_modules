@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:31:03 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/29 09:28:13 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 20:13:58 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ void        PhoneBook::_user_manual(void) const
 
 void    PhoneBook::_input_err(int *flag, std::string type) const
 {
+    
     std::cout << "\033[31m""Error:""\033[0m" << std::endl;
     std::cout << "  Invalid input: please enter a valid ""\033[33m"<< type << "\033[0m" << std::endl;
     *flag = 1;

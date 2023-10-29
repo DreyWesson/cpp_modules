@@ -6,7 +6,7 @@
 #    By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 18:56:51 by oduwoledare       #+#    #+#              #
-#    Updated: 2023/10/29 12:00:45 by oduwoledare      ###   ########.fr        #
+#    Updated: 2023/10/29 20:42:53 by oduwoledare      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,8 +14,8 @@ NAME = Account
 
 
 # FLAGS
-CC = g++
-CFLAGS = -Werror -Wall -Wextra -std=c++98 -pedantic
+CC = c++
+CFLAGS = -Werror -Wall -Wextra -std=c++98
 
 
 # Del
@@ -41,7 +41,7 @@ WARNING='\033[33m'
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) -o $@
+	@$(CC) $(OBJS) -o $@ $(CFLAGS)
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
 $(OBJ_DIR)/%.o: %.cpp 
