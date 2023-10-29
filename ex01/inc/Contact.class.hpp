@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 20:27:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/28 20:12:02 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 15:31:49 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,13 +32,13 @@ class Contact {
     public:
         Contact(void);
         ~Contact(void);
-        // getters
+
         std::string get_lname(void) const;
         std::string get_fname(void) const;
         std::string get_nickname(void) const;
         std::string get_phone_num(void) const;
         std::string get_darkest_secret(void) const;
-        // setters
+
         std::string set_fname(std::string);
         std::string set_lname(std::string);
         std::string set_nickname(std::string);
