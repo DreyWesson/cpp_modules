@@ -6,13 +6,13 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:31:03 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/28 20:46:12 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 02:00:05 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../phone/Phonebook.class.hpp"
 
-void Phonebook::_print_contact(int id)
+void PhoneBook::_print_contact(int id) const
 {
     std::cout   << " ----------------------------------------------------------------- \n"
                 << "|    ID    |First Name|Last Name | Nickname |Phone Num |DarkSecret|\n"
@@ -27,7 +27,7 @@ void Phonebook::_print_contact(int id)
                 << " ----------------------------------------------------------------- \n"<< std::endl; 
 }
 
-void    Phonebook::_view_contacts() const
+void    PhoneBook::_view_contacts(void) const
 {
     std::cout   << " ------------------------------------------- \n"
                 << "|                Contact List               |\n"
@@ -37,16 +37,18 @@ void    Phonebook::_view_contacts() const
 
     for (int i = 0; i < 8; i++)
     {
+        if (_contacts[i].get_fname().empty() && _contacts[i].get_lname().empty())
+            break ;
         std::cout << '|' << std::setw(10) << i;
         std::cout << '|' << std::setw(10) << _contacts[i].get_fname();
         std::cout << '|' << std::setw(10) << _contacts[i].get_lname();
         std::cout << '|' << std::setw(10) << _contacts[i].get_nickname();
         std::cout << '|' << std::endl;
+        std::cout   << "---------------------------------------------\n";
     }
-    std::cout   << " ------------------------------------------- \n"<< std::endl;
 }
 
-void        Phonebook::_user_manual()
+void        PhoneBook::_user_manual(void) const
 {
     std::cout << "#######################################" << std::endl;
     std::cout << "#                                     #" << std::endl;
@@ -59,14 +61,14 @@ void        Phonebook::_user_manual()
 
 }
 
-void    Phonebook::_input_err(int *flag, std::string type)
+void    PhoneBook::_input_err(int *flag, std::string type) const
 {
     std::cout << "\033[31m""Error:""\033[0m" << std::endl;
     std::cout << "  Invalid input: please enter a valid ""\033[33m"<< type << "\033[0m" << std::endl;
     *flag = 1;
 }
 
-void    Phonebook::_print_err(std::string msg)
+void    PhoneBook::_print_err(std::string msg) const
 {
     std::cout << "\033[31m""Error:""\033[0m" << std::endl;
     std::cout << "  " <<  msg << std::endl;
