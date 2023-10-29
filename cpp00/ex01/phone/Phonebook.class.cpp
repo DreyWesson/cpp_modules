@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 02:01:12 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 02:29:06 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,32 +22,7 @@ PhoneBook::~PhoneBook()
     std::cout << "Phonebook destructor called!" << std::endl;
 }
 
-
-void PhoneBook::_parse_input(std::string prop, int *flag, std::string type)
-{
-    while (std::cin.good() && (prop.empty() || *flag == 1))
-    {
-        *flag = 0;
-        std::cout << type << "> ";
-        getline(std::cin, prop);
-        if (prop.empty())
-        {
-            _print_err("Invalid input: please enter non empty value");
-            continue;
-        }
-        if (
-            (!type.compare("First name") && _contacts[_id % 8].set_fname(prop) == "")
-            || (!type.compare("Last name") && _contacts[_id % 8].set_lname(prop) == "")
-            || (!type.compare("Nickname") && _contacts[_id % 8].set_nickname(prop) == "")
-            || (!type.compare("Phone num") && _contacts[_id % 8].set_phone_num(prop) == "")
-        )
-            _input_err(flag, type);
-        else if (!type.compare("Darkest secret"))
-            _contacts[_id % 8].set_darkest_secret(prop);
-    }
-}
-
-void PhoneBook::_add_contact()
+void    PhoneBook::_add_contact()
 {
     int flag = 0;
     std::string first_name = "";
