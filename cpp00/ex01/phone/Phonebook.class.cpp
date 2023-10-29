@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 08:31:17 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 08:50:16 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void    PhoneBook::_search_contact(void) const
     else
     {
         if (_contacts[id].get_fname() == "" || _contacts[id].get_lname() == "")
-            _print_err("Phone index doesn't exit yet. Add more contact");
+            _print_err("Phone index doesn't exist yet. Add more contact");
         else
             _print_contact(id);
     }
@@ -80,6 +80,6 @@ void    PhoneBook::handle_phone_book(void)
             break;
         else
             _print_err("   cmd not found. Pls, use the manual!");
-                std::cout << "\033[32m""> ""\033[0m";
+        std::cout << "\033[32m""> ""\033[0m";
     }
 }

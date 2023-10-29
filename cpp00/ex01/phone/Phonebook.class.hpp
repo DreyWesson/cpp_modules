@@ -6,7 +6,7 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 02:01:29 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 08:46:44 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ private:
     void    _search_contact(void) const;
     void    _parse_input(std::string prop, int *flag, std::string type);
     void    _add_contact();
+    int     _router(std::string type, std::string prop);
 
 public:
     PhoneBook();
