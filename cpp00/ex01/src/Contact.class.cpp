@@ -6,11 +6,11 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 18:55:50 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/28 18:25:27 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 09:26:37 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.class.hpp"
+#include "../inc/Contact.class.hpp"
 
 Contact::Contact(void) {
     return ;        

@@ -6,11 +6,11 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 19:31:03 by oduwoledare       #+#    #+#             */
-/*   Updated: 2023/10/29 08:24:27 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 09:28:13 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../phone/Phonebook.class.hpp"
+#include "../../inc/Phonebook.class.hpp"
 
 void PhoneBook::_print_contact(int id) const
 {

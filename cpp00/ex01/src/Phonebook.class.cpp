@@ -6,14 +6,17 @@
 /*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 17:36:11 by doduwole          #+#    #+#             */
-/*   Updated: 2023/10/29 08:50:16 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/10/29 09:51:23 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Phonebook.class.hpp"
+
+#include "../inc/Phonebook.class.hpp"
+
 
 PhoneBook::PhoneBook()
 {
+    std::cout << CONTACT_SIZE <<std::endl;
     this->_id = 0;
 }
 
@@ -51,8 +54,8 @@ void    PhoneBook::_search_contact(void) const
     std::cout << "> ";
     std::cin >> str;
     id = atoi(str.c_str());
-    if (std::cin.fail() || (id < 0) || (id > 7) || str.length() > 1)
-        std::cout << "Invalid input!" << std::endl;
+    if (std::cin.fail() || (id < 0) || (id > (CONTACT_SIZE - 1)) || str.length() > 1)
+        _print_err("Out of range. Pls, enter a valid index!");
     else
     {
         if (_contacts[id].get_fname() == "" || _contacts[id].get_lname() == "")
