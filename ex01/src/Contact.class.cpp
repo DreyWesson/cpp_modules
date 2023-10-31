@@ -59,17 +59,17 @@ std::string Contact::_parse_str(std::string val, std::string type)
 {
     if (val == "")
         return ("");
-        for (size_t i = 0; i < val.size(); i++)
+    for (size_t i = 0; i < val.size(); i++)
+    {
+        if (!type.compare("str") && !isalpha(val[i]))
         {
-            if (!type.compare("str") && !isalpha(val[i]))
-            {
-                    if (isspace(val[i]))
-                        continue;
-                    return ("");
-            }
-            else if (!type.compare("digit") && !isdigit(val[i]))
+                if (isspace(val[i]))
+                    continue;
                 return ("");
         }
+        else if (!type.compare("digit") && !isdigit(val[i]))
+            return ("");
+    }
     return (_truncate(val));
 }
 

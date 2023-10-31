@@ -15,7 +15,7 @@ NAME = phonebook
 
 # FLAGS
 CC = c++
-CFLAGS = -Werror -Wall -Wextra -std=c++98
+CFLAGS = -Werror -Wall -Wextra -std=c++98 -pedantic -fsanitize=address
 
 
 # Del

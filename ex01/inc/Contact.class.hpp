@@ -17,6 +17,7 @@
 #include <string>
 #include <cstring>
 #include <iomanip>
+#include <stdlib.h>
 
 class Contact {
     private:
