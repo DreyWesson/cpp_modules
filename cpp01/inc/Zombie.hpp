@@ -1,20 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:06:17 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/14 21:30:42 by doduwole         ###   ########.fr       */
+/*   Created: 2023/11/14 21:09:12 by doduwole          #+#    #+#             */
+/*   Updated: 2023/11/14 21:27:28 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/Zombie.hpp"
+#ifndef ZOMBIE_H
+#define ZOMBIE_H
 
- int main(void)
- {
-    Zombie zombie("Batshit");  
-    zombie.announce();  
-    return (0);
- }
+#include <iostream>
+
+
+class Zombie {
+
+public:
+    Zombie(std::string name);
+    ~Zombie(void);
+    void announce(void);
+
+private:
+    std::string _name;
+};
+
+#endif

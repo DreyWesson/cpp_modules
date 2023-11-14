@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+         #
+#    By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/27 18:56:51 by oduwoledare       #+#    #+#              #
-#    Updated: 2023/10/29 20:42:46 by oduwoledare      ###   ########.fr        #
+#    Updated: 2023/11/14 21:04:04 by doduwole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,25 +36,25 @@ GREEN='\033[32m'
 GRAY='\033[2;37m'
 CURSIVE='\033[3m'
 WARNING='\033[33m'
-
+DANGER='\033[31m'
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) -o $@ $(CFLAGS)
+	@$(CC) $(OBJS) $(CFLAGS) -o $@ 
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
 $(OBJ_DIR)/%.o: %.cpp 
-	@echo $(CURSIVE)$(GRAY) "     - Building $<" $(NONE)
+	@echo $(CURSIVE) "     - Building $<" $(NONE)
 	@mkdir -p $(dir $@)
 	@$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS) $(OBJ_DIR)
+	@$(RM) $(OBJS) $(OBJ_DIR) > /dev/null || true
 	@echo $(CURSIVE)$(GRAY) "     - Object files removed" $(NONE)
 
 fclean: clean
-	@rm -f $(NAME)
+	@rm -f $(NAME) > /dev/null || true
 	@echo $(CURSIVE)$(GRAY) "     - $(NAME) removed" $(NONE)
 
 re: fclean all
