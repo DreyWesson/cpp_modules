@@ -1,30 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:09:12 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/14 21:27:28 by doduwole         ###   ########.fr       */
+/*   Created: 2023/11/14 21:06:17 by doduwole          #+#    #+#             */
+/*   Updated: 2023/11/14 22:22:05 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_H
-#define ZOMBIE_H
+#include "inc/Zombie.hpp"
 
-#include <iostream>
+ int main(void)
+ {
+    Zombie zombie("Batshit");  
+    Zombie *zombie2 = zombie.newZombie("Foo");
+    // Zombie zombie3("Bar");
 
+    zombie.announce();
+    zombie2->announce();
+    // zombie3.randomChump("foobar");
+    
 
-class Zombie {
-
-public:
-    Zombie(std::string name);
-    ~Zombie(void);
-    void announce(void);
-
-private:
-    std::string _name;
-};
-
-#endif
+    delete zombie2;
+    return (0);
+ }
