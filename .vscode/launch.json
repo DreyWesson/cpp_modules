@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/oduwoledare/atoms/core/cpp/ex02",
-      "program": "/Users/oduwoledare/atoms/core/cpp/ex02/build/Debug/outDebug"
+      "cwd": "/Users/doduwole/Documents/core/cpp_modules/cpp00/ex01/src",
+      "program": "/Users/doduwole/Documents/core/cpp_modules/cpp00/ex01/src/build/Debug/outDebug"
     }
   ]
 }
