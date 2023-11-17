@@ -6,11 +6,11 @@
 #    By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/14 21:04:30 by doduwole          #+#    #+#              #
-#    Updated: 2023/11/17 14:50:32 by doduwole         ###   ########.fr        #
+#    Updated: 2023/11/17 15:18:14 by doduwole         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = zombie_horde
+NAME = brain
 
 
 # FLAGS
