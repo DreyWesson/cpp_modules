@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
+/*   HumanA.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/14 21:34:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/17 20:44:55 by doduwole         ###   ########.fr       */
+/*   Created: 2023/11/17 21:32:51 by doduwole          #+#    #+#             */
+/*   Updated: 2023/11/17 22:50:02 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../inc/Zombie.hpp"
+#include "HumanA.hpp"
 
-Zombie* zombieHorde(int N, std::string name )
+HumanA::HumanA(std::string name, Weapon& weapon) : weapon(weapon), _name(name)
 {
-    Zombie *zombies = new Zombie[N];
-    for (int i = 0; i < N; ++i)
-    {
-        new (&zombies[i]) Zombie(name);
-    }
-    return (zombies);
+}
+
+HumanA::~HumanA()
+{
+    std::cout << "deconstructor called" << std::endl;
+}
+
+void HumanA::attack(void)
+{
+    std::cout << this->_name << " attacks with their " << HumanA::weapon.getType() << std::endl;
 }
