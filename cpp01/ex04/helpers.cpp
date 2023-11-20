@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   helpers.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:14:41 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 14:43:58 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:19:55 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ std::string get_content(std::string filename, std::string& content)
     std::ifstream file;
     std::string line;
 
-    file.open(filename, std::ios::in);
+    file.open(filename.c_str(), std::ios::in);
     if (file.is_open())
         while (getline(file, line, '\0'))
             content.append(line);
@@ -38,10 +38,10 @@ void handle_replacement(char **argv, std::string content)
     int len;
     std::string new_filename;
 
-    len = std::strlen(argv[2]);
+    len = std::string(argv[2]).size();
     new_filename = argv[1];
     new_filename = new_filename.substr(0, new_filename.rfind('.') + 1) + "replace";
-    std::ofstream file(new_filename);
+    std::ofstream file(new_filename.c_str());
     if (!file.is_open())
         print_err("File error");
     else

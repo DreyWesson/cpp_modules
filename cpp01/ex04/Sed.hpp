@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Sed.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:20:32 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 11:17:21 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:23:54 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <fstream>
+#include <string>
 
 void print_err(std::string msg);
 std::string get_content(std::string filename, std::string& content);

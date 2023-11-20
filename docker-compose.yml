@@ -1,0 +1,11 @@
+services:
+  cpp:
+    build:
+      dockerfile: Dockerfile
+    image: cpp
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        source: .
+        target: /app

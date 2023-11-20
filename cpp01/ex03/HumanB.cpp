@@ -3,20 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/18 17:05:42 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/18 22:36:56 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 21:00:26 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
 
-HumanB::HumanB(std::string name) : _name(name), _weapon(nullptr) {}
+HumanB::HumanB(std::string name) : _name(name) {}
 
 HumanB::~HumanB()
 {
-    this->_weapon = nullptr;
     std::cout << "deconstructor called" << std::endl;
 }
 
