@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:14:41 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 11:18:28 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 11:52:04 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,48 +24,41 @@ std::string get_content(std::string filename, std::string& content)
     std::string line;
 
     file.open(filename);
-    if (!file.is_open())
-    {
-        print_err("File error");
-        return (NULL);
-    }
-    while (file.good())
-    {
-        getline(file, line, '\0');
-        content.append(line);
-    }
+    if (file.is_open())
+        while (file.good())
+        {
+            getline(file, line, '\0');
+            content.append(line);
+        }
     file.close();
     return (content);
 
-}
-
-std::string replace_filename(std::string filename)
-{
-    return (filename.substr(0, filename.rfind('.') + 1) + "replace");
 }
 
 void handle_replacement(char **argv, std::string content)
 {
     int i = 0;
     int j = 0;
-    int len = std::strlen(argv[2]);
-    
-    std::ofstream file(replace_filename(argv[1]));
+    int len;
+    std::string new_filename;
+
+    len = std::strlen(argv[2]);
+    new_filename = argv[1];
+    new_filename = new_filename.substr(0, new_filename.rfind('.') + 1) + "replace";
+    std::ofstream file(new_filename);
     if (!file.is_open())
-    {
         print_err("File error");
-        return ;
-    }
-    while (content[i])
-    {
-        j = 0;
-        if (content[i] == argv[2][j] && std::string(argv[2]).compare(content.substr(i, len)) == 0)
+    else
+        while (content[i])
         {
-            file << argv[3];
-            i += len - 1;
+            j = 0;
+            if (content[i] == argv[2][j] && std::string(argv[2]).compare(content.substr(i, len)) == 0)
+            {
+                file << argv[3];
+                i += len - 1;
+            }
+            else
+                file << content[i];
+            i++;
         }
-        else
-            file << content[i];
-        i++;
-    }
 }
