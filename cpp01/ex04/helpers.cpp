@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/20 11:14:41 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 11:52:04 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:43:58 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,15 @@ void print_err(std::string msg)
 
 std::string get_content(std::string filename, std::string& content)
 {
-    std::fstream file;
+    std::ifstream file;
     std::string line;
 
-    file.open(filename);
+    file.open(filename, std::ios::in);
     if (file.is_open())
-        while (file.good())
-        {
-            getline(file, line, '\0');
+        while (getline(file, line, '\0'))
             content.append(line);
-        }
     file.close();
     return (content);
-
 }
 
 void handle_replacement(char **argv, std::string content)

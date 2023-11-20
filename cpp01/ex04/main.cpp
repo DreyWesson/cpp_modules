@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:19:15 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 11:52:17 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/20 14:46:07 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int main(int argc, char **argv)
     if (std::string(argv[2]).empty() || std::string(argv[3]).empty())
         return (print_err("String cannot be empty"), 2);
     if (get_content(argv[1], content).empty())
-        return (print_err("File error"), 3);
+        return (print_err("Empty file or Error opening file"), 3);
     handle_replacement(argv, content);
     return (0);
 }
