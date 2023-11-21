@@ -28,12 +28,39 @@ void Harl::error(void) {
 void Harl::complain(std::string level) {
     int i = 0;
     std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-    t_member members[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 
     while (i < 4 && levels[i].compare(level))
         i++;
-    if (i < 4)
-        (this->*members[i])();
+    switch (i)
+    {
+        case    0:
+        {
+            std::cout << "[" << levels[0] << "]" << std::endl;
+            this->debug();
+            std::cout << std::endl;
+        }
+        case    1:
+        {
+            std::cout << "[" << levels[1] << "]" << std::endl;
+            this->info();
+            std::cout << std::endl;
+        } 
+        case    2:
+        {
+            std::cout << "[" << levels[2] << "]" << std::endl;
+            this->warning();
+            std::cout << std::endl;
+        } 
+        case    3:
+        {
+            std::cout << "[" << levels[3] << "]" << std::endl;
+            this->error();
+            std::cout << std::endl;
+            break ;
+        } 
+        default:
+            std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
+    }
 }
 
 void Harl::print_welcome(void)
