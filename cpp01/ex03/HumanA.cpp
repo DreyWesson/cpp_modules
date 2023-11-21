@@ -12,14 +12,12 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name, Weapon& weapon) : _weapon(weapon), _name(name){}
+HumanA::HumanA(std::string name, Weapon &weapon) : _weapon(weapon), _name(name) {}
 
-HumanA::~HumanA()
-{
+HumanA::~HumanA() {
     std::cout << "deconstructor called" << std::endl;
 }
 
-void HumanA::attack(void)
-{
+void HumanA::attack(void) {
     std::cout << this->_name << " attacks with their " << HumanA::_weapon.getType() << std::endl;
 }

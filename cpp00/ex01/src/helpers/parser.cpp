@@ -12,10 +12,8 @@
 
 #include "../../inc/Phonebook.class.hpp"
 
-void PhoneBook::_parse_input(std::string prop, int *flag, std::string type)
-{
-    while (std::cin.good() && (prop.empty() || *flag == 1))
-    {
+void PhoneBook::_parse_input(std::string prop, int *flag, std::string type) {
+    while (std::cin.good() && (prop.empty() || *flag == 1)) {
         *flag = 0;
         std::cout << type << "> ";
         getline(std::cin, prop);

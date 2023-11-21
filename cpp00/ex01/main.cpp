@@ -13,8 +13,7 @@
 #include "inc/Contact.class.hpp"
 #include "inc/Phonebook.class.hpp"
 
-int main(void)
-{
+int main(void) {
     PhoneBook phonebook;
 
     phonebook.handle_phone_book();

@@ -20,14 +20,17 @@ class Zombie {
 
 public:
     Zombie(void);
+
     ~Zombie(void);
+
     void announce(void);
+
     Zombie(std::string name);
 
 private:
     std::string _name;
 };
 
-Zombie* zombieHorde(int N, std::string name );
+Zombie *zombieHorde(int N, std::string name);
 
 #endif

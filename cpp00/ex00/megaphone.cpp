@@ -12,19 +12,15 @@
 
 #include <iostream>
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     int i;
     int j;
 
     i = 1;
-    if (argc > 1)
-    {
-        while (i < argc)
-        {
+    if (argc > 1) {
+        while (i < argc) {
             j = 0;
-            while (argv[i][j] != '\0')
-            {
+            while (argv[i][j] != '\0') {
                 if (argv[i][j] >= 'a' && argv[i][j] <= 'z')
                     argv[i][j] = std::toupper(argv[i][j]);
                 std::cout << argv[i][j];
@@ -32,9 +28,8 @@ int main(int argc, char **argv)
             }
             i++;
         }
-    }
-    else if (argc == 1)
-            std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
+    } else if (argc == 1)
+        std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
     std::cout << std::endl;
     return (0);
 }

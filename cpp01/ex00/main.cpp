@@ -12,15 +12,14 @@
 
 #include "inc/Zombie.hpp"
 
- int main(void)
- {
-      Zombie zombie("Mortis Max");
-      zombie.announce();
+int main(void) {
+    Zombie zombie("Mortis Max");
+    zombie.announce();
 
-      Zombie *heap_zombie = newZombie("Rotten Ronin");
-      heap_zombie->announce();
+    Zombie *heap_zombie = newZombie("Rotten Ronin");
+    heap_zombie->announce();
 
-      randomChump("Gory Gary");
-      delete heap_zombie;
-      return (0);
- }
+    randomChump("Gory Gary");
+    delete heap_zombie;
+    return (0);
+}

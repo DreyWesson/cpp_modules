@@ -12,20 +12,17 @@
 
 #include "../inc/Zombie.hpp"
 
-Zombie::Zombie(std::string name): _name(name)
-{
+Zombie::Zombie(std::string name) : _name(name) {
     std::cout << "Zombie constructor called" << std::endl;
-    return ;
+    return;
 }
 
-Zombie::~Zombie(void)
-{
+Zombie::~Zombie(void) {
     std::cout << this->_name << " zombie destroyed" << std::endl;
-    return ;
+    return;
 }
 
-void Zombie::announce(void)
-{
+void Zombie::announce(void) {
     std::cout << _name << ": " << "BraiiiiiiinnnzzzZ..." << std::endl;
-    return ;
+    return;
 }

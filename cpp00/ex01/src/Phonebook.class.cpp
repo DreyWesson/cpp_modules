@@ -14,19 +14,16 @@
 #include "../inc/Phonebook.class.hpp"
 
 
-PhoneBook::PhoneBook()
-{
-    std::cout << CONTACT_SIZE <<std::endl;
+PhoneBook::PhoneBook() {
+    std::cout << CONTACT_SIZE << std::endl;
     this->_id = 0;
 }
 
-PhoneBook::~PhoneBook()
-{
+PhoneBook::~PhoneBook() {
     std::cout << "Phonebook destructor called!" << std::endl;
 }
 
-void    PhoneBook::_add_contact()
-{
+void PhoneBook::_add_contact() {
     int flag = 0;
     std::string first_name = "";
     std::string last_name = "";
@@ -47,8 +44,7 @@ void    PhoneBook::_add_contact()
     std::cin.clear();
 }
 
-void    PhoneBook::_search_contact(void) const
-{
+void PhoneBook::_search_contact(void) const {
     int id = 0;
     std::string str;
     _view_contacts();
@@ -58,8 +54,7 @@ void    PhoneBook::_search_contact(void) const
     id = atoi(str.c_str());
     if (std::cin.fail() || (id < 0) || (id > (CONTACT_SIZE - 1)) || str.length() > 1)
         _print_err("Out of range. Pls, enter a valid index!");
-    else
-    {
+    else {
         if (_contacts[id].get_fname() == "" || _contacts[id].get_lname() == "")
             _print_err("Phone index doesn't exist yet. Add more contact");
         else
@@ -69,14 +64,12 @@ void    PhoneBook::_search_contact(void) const
     std::cin.ignore(10000, '\n');
 }
 
-void    PhoneBook::handle_phone_book(void)
-{
+void PhoneBook::handle_phone_book(void) {
     std::string cmd;
 
     this->_user_manual();
     std::cout << "\033[32m""> ""\033[0m";
-    while (getline(std::cin, cmd))
-    {
+    while (getline(std::cin, cmd)) {
         if (!cmd.compare("ADD"))
             _add_contact();
         else if (!cmd.compare("SEARCH"))

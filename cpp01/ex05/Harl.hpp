@@ -13,14 +13,23 @@
 class Harl {
 private:
     void info(void);
+
     void error(void);
+
     void debug(void);
+
     void warning(void);
 
 public:
     Harl(void);
+
     ~Harl(void);
-    void complain( std::string level );
+
+    void print_welcome(void);
+
+    void complain(std::string level);
 };
+
+typedef void (Harl::*t_member)(void);
 
 #endif

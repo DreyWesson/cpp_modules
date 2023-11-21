@@ -6,14 +6,13 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/19 15:19:15 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/20 14:46:07 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/21 14:17:37 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Sed.hpp"
 
-int main(int argc, char **argv)
-{
+int main(int argc, char **argv) {
     std::string content;
     std::string new_filename;
 
@@ -24,6 +23,6 @@ int main(int argc, char **argv)
         return (print_err("String cannot be empty"), 2);
     if (get_content(argv[1], content).empty())
         return (print_err("Empty file or Error opening file"), 3);
-    handle_replacement(argv, content);
+            handle_replacement(argv, content);
     return (0);
 }

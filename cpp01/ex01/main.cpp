@@ -12,16 +12,14 @@
 
 #include "inc/Zombie.hpp"
 
- int main(void)
- {
+int main(void) {
     int N = 10;
     Zombie *horde = zombieHorde(N, "Gory Gary");
-    for (int i = 0; i < N; ++i)
-    {
+    for (int i = 0; i < N; ++i) {
         std::cout << std::setw(2) << std::setfill('0') << i + 1 << ". ";
         horde[i].announce();
     }
     delete[] horde;
     return (0);
- }
+}
  

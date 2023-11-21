@@ -18,8 +18,11 @@
 #include <string>
 
 void print_err(std::string msg);
-std::string get_content(std::string filename, std::string& content);
+
+std::string get_content(std::string filename, std::string &content);
+
 std::string replace_filename(std::string filename);
+
 void handle_replacement(char **argv, std::string content);
 
 #endif

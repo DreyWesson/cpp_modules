@@ -20,31 +20,41 @@
 #include <stdlib.h>
 
 class Contact {
-    private:
-        std::string _lname;
-        std::string _fname;
-        std::string _nickname;
-        std::string _phone_num;
-        std::string _darkest_secret;
-        
-        std::string _parse_str(std::string val, std::string type);
-        std::string _truncate(std::string);
+private:
+    std::string _lname;
+    std::string _fname;
+    std::string _nickname;
+    std::string _phone_num;
+    std::string _darkest_secret;
 
-    public:
-        Contact(void);
-        ~Contact(void);
+    std::string _parse_str(std::string val, std::string type);
 
-        std::string get_lname(void) const;
-        std::string get_fname(void) const;
-        std::string get_nickname(void) const;
-        std::string get_phone_num(void) const;
-        std::string get_darkest_secret(void) const;
+    std::string _truncate(std::string);
 
-        std::string set_fname(std::string);
-        std::string set_lname(std::string);
-        std::string set_nickname(std::string);
-        std::string set_phone_num(std::string);
-        void set_darkest_secret(std::string);
+public:
+    Contact(void);
+
+    ~Contact(void);
+
+    std::string get_lname(void) const;
+
+    std::string get_fname(void) const;
+
+    std::string get_nickname(void) const;
+
+    std::string get_phone_num(void) const;
+
+    std::string get_darkest_secret(void) const;
+
+    std::string set_fname(std::string);
+
+    std::string set_lname(std::string);
+
+    std::string set_nickname(std::string);
+
+    std::string set_phone_num(std::string);
+
+    void set_darkest_secret(std::string);
 };
 
 #endif
