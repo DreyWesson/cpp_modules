@@ -5,8 +5,12 @@ Fixed::Fixed(void) : _num(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(int const num) : _num(num) {
-    std::cout << "Parameterized constructor called" << std::endl;
+Fixed::Fixed(int const num) {
+    (void) num;
+}
+
+Fixed::Fixed(float const num) {
+    (void) num;
 }
 
 Fixed::Fixed(Fixed const &cpy)
@@ -35,4 +39,17 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(int const raw) {
     this->_num = raw;
+}
+
+int Fixed::toInt( void ) const {
+    return this->_num << this->_bits;
+}
+
+float Fixed::toFloat( void ) const {
+    return (float)this->_num / (1 << this->_bits);
+}
+
+std::ostream & operator<<(std::ostream &cout, Fixed const & i) {
+    cout << "Value: " << i.toFloat();
+    return (cout);
 }
