@@ -13,6 +13,7 @@ private:
 
 public:
     Fixed(void);
+    Fixed(int const num);
     Fixed(Fixed const &cpy);
     Fixed &operator=(Fixed const &cpy);
     ~Fixed(void);

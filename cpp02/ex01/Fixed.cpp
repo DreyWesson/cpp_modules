@@ -5,6 +5,10 @@ Fixed::Fixed(void) : _num(0)
     std::cout << "Default constructor called" << std::endl;
 }
 
+Fixed::Fixed(int const num) : _num(num) {
+    std::cout << "Parameterized constructor called" << std::endl;
+}
+
 Fixed::Fixed(Fixed const &cpy)
 {
     std::cout << "Copy constructor called" << std::endl;
