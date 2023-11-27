@@ -84,6 +84,11 @@ Fixed   Fixed::operator*(const Fixed &cpy) const {
 }
 
 Fixed   Fixed::operator/(const Fixed &cpy) const {
+    if (cpy.getRawBits() == 0)
+    {
+        std::runtime_error("Dividing by zero");
+        exit(1);
+    }
     return (Fixed(this->toFloat() / cpy.toFloat()));
 }
 /**
