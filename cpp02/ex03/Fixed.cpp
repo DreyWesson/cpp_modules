@@ -1,4 +1,5 @@
 #include "Fixed.hpp"
+#include "Point.hpp"
 
 Fixed::Fixed(void) : _num(0) {}
 
