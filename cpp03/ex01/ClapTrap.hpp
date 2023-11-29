@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:18 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/29 15:53:11 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/29 19:57:46 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 class ClapTrap
 {
 private:
+
+protected:
     std::string _name;
     unsigned int _hitPoints;
     unsigned int _energyPoints;

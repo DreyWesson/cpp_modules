@@ -6,14 +6,14 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:32 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/29 15:56:36 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/29 22:43:09 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap() : _hitPoints(10), _energyPoints(10), _attackDamage(0){
-    std::cout << "ClapTrap constructor called" << std::endl;
+    std::cout << "ClapTrap default constructor called" << std::endl;
     // print_welcome();
     return;
 }
@@ -70,7 +70,7 @@ void ClapTrap::attack(const std::string& target) {
         return ;
     }
     _energyPoints--;
-    std::cout << "ClapTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+    std::cout << "ClapTrap " << _name << "attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
     // print_data();
 }
 

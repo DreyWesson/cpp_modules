@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:03:55 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/29 15:24:27 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/29 22:42:34 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,15 @@ private:
 
 public:
     ScavTrap();
+    ScavTrap(std::string name);
     ScavTrap(const ScavTrap &cpy);
     ScavTrap &operator=(const ScavTrap &cpy);
+
     ~ScavTrap();
+
+    void attack(const std::string& target);
+    void guardGate();
+
 };
 
 

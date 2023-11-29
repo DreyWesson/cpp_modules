@@ -6,20 +6,19 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:38 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/29 15:58:19 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/11/29 22:48:26 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 int main(void) {
-    // ClapTrap trap("Bumble Bee");
-    // trap.attack("spider");
-    // trap.attack("anon");
-    // trap.beRepaired(1);
-    // trap.takeDamage(5);
-    // trap.takeDamage(5);
-    ScavTrap trap;
-    std::cout << trap.getHitPoints() << std::endl;
+    // Test ScavClap default constructor
+    // ScavTrap trap("Bumble bee");
+    // trap.print_data();
+    // Test ScavClap parameterized constructor
+    ScavTrap trap1;
+    trap1.print_data();
+    trap1.attack("Spiderman");
     return (0);
 }
