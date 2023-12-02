@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/29 15:04:04 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/02 10:28:22 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:19:03 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void ScavTrap::attack(const std::string& target) {
         return ;
     }
     _energyPoints--;
-    std::cout << "ScavTrap " << _name << "attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
+    std::cout << "ScavTrap " << _name << " attacks " << target << ", causing " << _attackDamage << " points of damage!" << std::endl;
     print_data();
 }
 
 void ScavTrap::guardGate() {
-    std::cout << "ScavTrap" << _name << " is now in Gate keeper mode\n";
+    std::cout << "ScavTrap " << _name << " is now in Gate keeper mode\n";
 }

@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:32 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/02 14:20:59 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/02 14:08:02 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,16 +41,6 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &cpy) {
         this->_hitPoints = cpy._hitPoints;
     }
     return (*this);
-}
-void ClapTrap::print_welcome(std::string const_type) {
-    std::cout << "#############################################" << std::endl;
-    std::cout << "#            Welcome to ScavTrap" << std::endl;
-    std::cout << "#  ""\033[32m"<< const_type <<"Initialising..." "\033[0m"<< std::endl;
-    std::cout << "#  Name: ""\033[33m" << _name << "\033[0m"<< std::endl;
-    std::cout << "#  HitPoints: ""\033[33m" << _hitPoints << "\033[0m"<< std::endl;
-    std::cout << "#  EnergyPoints: ""\033[33m" << _energyPoints << "\033[0m"<< std::endl;
-    std::cout << "#  AttackDamage: ""\033[33m" << _attackDamage <<"\033[0m"<< std::endl;
-    std::cout << "#############################################" << std::endl;
 }
 
 void ClapTrap::print_data() {

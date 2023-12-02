@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:18 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/02 10:44:54 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:54:43 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ public:
     void takeDamage(unsigned int amount);
     void beRepaired(unsigned int amount);
     void print_data(void);
-    void print_welcome(std::string const_type);
     
     // void setName(std::string name);
     // void setHitPoints(unsigned int value);

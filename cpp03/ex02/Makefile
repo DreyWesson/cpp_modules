@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = flag_trap
 
 
 # FLAGS

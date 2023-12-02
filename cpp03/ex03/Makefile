@@ -1,4 +1,4 @@
-NAME = fixed
+NAME = diamond_trap
 
 
 # FLAGS
