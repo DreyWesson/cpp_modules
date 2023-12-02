@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/28 18:08:32 by doduwole          #+#    #+#             */
-/*   Updated: 2023/11/29 11:27:18 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/02 10:22:54 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,12 +91,6 @@ void ClapTrap::beRepaired(unsigned int amount) {
     if (_hitPoints <= 0 || _energyPoints <= 0)
     {
         std::cout << _name << ", you have no energy or hit points" << std::endl;
-        return ;
-    }
-    if (_hitPoints + amount > 10)
-    {
-        std::cout << "ClapTrap " << _name << " you're over reaching! Exceeded max point" << std::endl;
-        _hitPoints = 10;
         return ;
     }
     this->_hitPoints += amount;
