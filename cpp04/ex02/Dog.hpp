@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:41:56 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 04:52:42 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/07 00:16:27 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ public:
     ~Dog(void);
 
 
-    void makeSound(void) const;
+    virtual void makeSound(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:56:02 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 05:26:40 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:59:55 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,11 @@ void other_tests() {
 
 int main()
 {
-    // const Animal* j = new Dog();
-    // const Animal* i = new Cat();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
 
-    // delete j;//should not create a leak
-    // delete i;
+    delete j;//should not create a leak
+    delete i;
 
     // const int numAnimals = 10;
     // Animal* animal[numAnimals];
@@ -52,9 +52,6 @@ int main()
     //     delete animal[i];
     // }
     // other_tests();
-    Dog basic;
-    {
-        Dog tmp = basic;
-    }
+
     return 0;
 }

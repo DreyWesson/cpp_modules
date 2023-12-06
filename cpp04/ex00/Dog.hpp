@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:41:56 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 01:08:20 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:37:51 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     Dog &operator=(const Dog &cpy);
     ~Dog(void);
 
-    void makeSound(void) const;
+    virtual void makeSound(void) const;
 };
 
 #endif

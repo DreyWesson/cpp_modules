@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 13:43:33 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/07 00:09:43 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,12 @@ Dog::Dog() : Animal()
 {
     std::cout << "Dog constructor called\n";
     type = "Dog";
-    brain = new Brain();
+    try {
+        this->brain = new Brain();
+    }
+    catch (const std::bad_alloc& e) {
+        std::cout << "Memory Allocation is failed\n";
+    }
 }
 
 Dog::~Dog()

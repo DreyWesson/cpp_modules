@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 02:03:03 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 03:22:41 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 05:32:54 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ public:
     Brain(const Brain &cpy);
     Brain &operator=(const Brain &cpy);
     virtual ~Brain(void);
-
-    // void displayIdeas() const;
 };
 
 

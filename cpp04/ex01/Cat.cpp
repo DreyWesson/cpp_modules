@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:31:03 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 13:43:17 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/07 00:07:55 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Cat::Cat() : Animal()
     catch (const std::bad_alloc& e) {
         std::cout << "Memory Allocation is failed\n";
     }
-    this->brain = new Brain();
+    // this->brain = new Brain();
 }
 
 Cat::~Cat()

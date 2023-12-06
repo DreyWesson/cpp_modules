@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/06 03:28:32 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 03:35:00 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:58:17 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,8 @@
 Brain::Brain()
 {
     std::cout << "Brain constructor called\n";
+    for (int i = 0; i < 100; i++)
+        ideas[i] = "something";
 }
 
 Brain::~Brain()
@@ -23,7 +25,9 @@ Brain::~Brain()
 }
 
 Brain::Brain(const Brain &cpy) {
-    *this = cpy;
+    // *this = cpy;
+    for (int i = 0; i < 100; i++) 
+        this->ideas[i] = cpy.ideas[i];
 }
 
 Brain &Brain::operator=(const Brain &cpy) {

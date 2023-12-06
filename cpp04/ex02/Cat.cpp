@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:31:03 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 04:47:52 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/07 00:19:19 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,19 @@
 
 Cat::Cat() : AAnimal()
 {
-    // std::cout << "Cat constructor called\n";
-    //     try {
-    //     this->brain = new Brain();
-    // }
-    // catch (const std::bad_alloc& e) {
-    //     std::cout << "Memory Allocation is failed\n";
-    // }
+    std::cout << "Cat constructor called\n";
     type = "Cat";
-    this->brain = new Brain();
+    try {
+        this->brain = new Brain();
+    }
+    catch (const std::bad_alloc& e) {
+        std::cout << "Memory Allocation is failed\n";
+    }
 }
 
 Cat::~Cat()
 {
-    // std::cout << "Cat destructor called\n";
+    std::cout << "Cat destructor called\n";
     delete this->brain;
 }
 
@@ -37,6 +36,7 @@ Cat::Cat(const Cat &cpy) {
 }
 
 Cat &Cat::operator=(const Cat &cpy) {
+    std::cout << "Cat assignment called\n";
     if (this != &cpy)
     {
         this->type = cpy.type;
@@ -49,3 +49,29 @@ void Cat::makeSound(void) const {
     std::cout << "Meow!!!\n";
 }
 
+/**
+ * WrongCat
+*/
+WrongCat::WrongCat() : WrongAnimal()
+{
+    std::cout << "WrongCat constructor called\n";
+    type = "Cat";
+}
+
+WrongCat::~WrongCat()
+{
+    std::cout << "WrongCat destructor called\n";
+}
+
+WrongCat::WrongCat(const WrongCat &cpy) {
+    *this = cpy;
+}
+
+WrongCat &WrongCat::operator=(const WrongCat &cpy) {
+    (void) cpy;
+    return (*this);
+}
+
+void WrongCat::makeSound(void) const {
+    std::cout << "WrongCat making meow sound!!!\n";
+}

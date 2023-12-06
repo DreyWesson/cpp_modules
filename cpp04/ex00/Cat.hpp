@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:31:18 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 01:34:58 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 23:37:29 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ public:
     Cat &operator=(const Cat &cpy);
     ~Cat(void);
     
-    void makeSound(void) const;
+    virtual void makeSound(void) const;
 };
 
 class WrongCat : public WrongAnimal
