@@ -1,38 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Brain.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:08:11 by doduwole         ###   ########.fr       */
+/*   Created: 2023/12/06 03:28:32 by doduwole          #+#    #+#             */
+/*   Updated: 2023/12/06 05:32:03 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#include "./Brain.hpp"
 
-Dog::Dog() : Animal()
+Brain::Brain()
 {
-    // std::cout << "Dog constructor called\n";
-    type = "Dog";
+    std::cout << "Brain constructor called\n";
 }
 
-Dog::~Dog()
+Brain::~Brain()
 {
-    // std::cout << "Dog destructor called\n";
+    std::cout << "Brain destructor called\n";
 }
 
-Dog::Dog(const Dog &cpy) {
+Brain::Brain(const Brain &cpy) {
     *this = cpy;
 }
 
-Dog &Dog::operator=(const Dog &cpy) {
+Brain &Brain::operator=(const Brain &cpy) {
     if (this != &cpy)
-        type = cpy.type;
+    {
+        for (int i = 0; i < 100; i++)
+            this->ideas[i] = cpy.ideas[i];
+    }
     return (*this);
-}
-
-void Dog::makeSound(void) const {
-    std::cout << "Bark!!!\n";
 }

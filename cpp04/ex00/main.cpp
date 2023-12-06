@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:56:02 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 01:56:56 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 02:11:12 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,9 @@ int main()
     i->makeSound(); //will output the cat sound!
     j->makeSound();
     meta->makeSound();
-    delete meta;
     delete i;
     delete j;
+    delete meta;
     // structors_chaining();
     // wrong_test();
     return 0;

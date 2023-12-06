@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:26:21 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:07:31 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 04:59:08 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 Animal::Animal() : type("Elephant")
 {
-    // std::cout << "Animal constructor called\n";
+    std::cout << "Animal constructor called\n";
 }
 
 Animal::~Animal()
 {
-    // std::cout << "Animal destructor called\n";
+    std::cout << "Animal destructor called\n";
 }
 
 Animal::Animal(const Animal &cpy) {
@@ -41,6 +41,7 @@ void Animal::setType(std::string _type) {
 }
 
 std::string Animal::getType(void) const {
+    std::cout << "type :" << type << "\n";
     return (type);
 }
 

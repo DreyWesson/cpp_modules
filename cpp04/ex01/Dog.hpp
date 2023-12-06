@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:08:11 by doduwole         ###   ########.fr       */
+/*   Created: 2023/12/05 23:41:56 by doduwole          #+#    #+#             */
+/*   Updated: 2023/12/06 03:45:30 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef DOG_H
+#define DOG_H
 
-Dog::Dog() : Animal()
+#include <iostream>
+#include "Animal.hpp"
+#include "Brain.hpp"
+
+class Dog : public Animal
 {
-    // std::cout << "Dog constructor called\n";
-    type = "Dog";
-}
+private:
+    Brain* brain;
 
-Dog::~Dog()
-{
-    // std::cout << "Dog destructor called\n";
-}
+protected:
 
-Dog::Dog(const Dog &cpy) {
-    *this = cpy;
-}
+    
+public:
+    Dog(void);
+    Dog(const Dog &cpy);
+    Dog &operator=(const Dog &cpy);
+    ~Dog(void);
 
-Dog &Dog::operator=(const Dog &cpy) {
-    if (this != &cpy)
-        type = cpy.type;
-    return (*this);
-}
 
-void Dog::makeSound(void) const {
-    std::cout << "Bark!!!\n";
-}
+    void makeSound(void) const;
+};
+
+#endif

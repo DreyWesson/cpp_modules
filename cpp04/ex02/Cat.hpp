@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:08:11 by doduwole         ###   ########.fr       */
+/*   Created: 2023/12/05 23:31:18 by doduwole          #+#    #+#             */
+/*   Updated: 2023/12/06 04:52:30 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Dog.hpp"
+#ifndef CAT_H
+#define CAT_H
 
-Dog::Dog() : Animal()
+#include <iostream>
+#include "AAnimal.hpp"
+#include "Brain.hpp"
+
+class Cat : public AAnimal
 {
-    // std::cout << "Dog constructor called\n";
-    type = "Dog";
-}
+private:
+    Brain* brain;
 
-Dog::~Dog()
-{
-    // std::cout << "Dog destructor called\n";
-}
+protected:
+    
+public:
+    Cat(void);
+    Cat(const Cat &cpy);
+    Cat &operator=(const Cat &cpy);
+    ~Cat(void);
+    
+    void makeSound(void) const;
+};
 
-Dog::Dog(const Dog &cpy) {
-    *this = cpy;
-}
 
-Dog &Dog::operator=(const Dog &cpy) {
-    if (this != &cpy)
-        type = cpy.type;
-    return (*this);
-}
-
-void Dog::makeSound(void) const {
-    std::cout << "Bark!!!\n";
-}
+#endif

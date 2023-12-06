@@ -6,30 +6,46 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:31:03 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:07:51 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 05:37:34 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat() : Animal()
 {
-    // std::cout << "Cat constructor called\n";
+    std::cout << "Cat constructor called\n";
+    //     try {
+    //     this->brain = new Brain();
+    // }
+    // catch (const std::bad_alloc& e) {
+    //     std::cout << "Memory Allocation is failed\n";
+    // }
     type = "Cat";
+    this->brain = new Brain();
 }
 
 Cat::~Cat()
 {
-    // std::cout << "Cat destructor called\n";
+    std::cout << "Cat destructor called\n";
+    delete this->brain;
 }
 
 Cat::Cat(const Cat &cpy) {
     *this = cpy;
 }
+// Cat::Cat(const Cat &cpy) : Animal(cpy) {
+//     this->brain = new Brain(*cpy.brain);
+// }
 
 Cat &Cat::operator=(const Cat &cpy) {
+    std::cout << "Cat assignment called\n";
     if (this != &cpy)
-        type = cpy.type;
+    {
+        this->type = cpy.type;
+        this->brain = new Brain( *cpy.brain );
+    }
     return (*this);
 }
 

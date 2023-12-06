@@ -6,21 +6,24 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:08:11 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 04:47:00 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Dog.hpp"
+#include "Brain.hpp"
 
-Dog::Dog() : Animal()
+Dog::Dog() : AAnimal()
 {
     // std::cout << "Dog constructor called\n";
     type = "Dog";
+    brain = new Brain();
 }
 
 Dog::~Dog()
 {
     // std::cout << "Dog destructor called\n";
+    delete brain;
 }
 
 Dog::Dog(const Dog &cpy) {
@@ -29,7 +32,10 @@ Dog::Dog(const Dog &cpy) {
 
 Dog &Dog::operator=(const Dog &cpy) {
     if (this != &cpy)
-        type = cpy.type;
+    {
+        this->type = cpy.type;
+        this->brain = new Brain( *cpy.brain );
+    }
     return (*this);
 }
 

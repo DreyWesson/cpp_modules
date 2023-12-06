@@ -1,4 +1,4 @@
-NAME = diamond_trap
+NAME = brain
 
 
 # FLAGS
