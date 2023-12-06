@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 05:37:51 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:43:33 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,6 @@ Dog::~Dog()
 Dog::Dog(const Dog &cpy) {
     *this = cpy;
 }
-// Dog::Dog(const Dog &cpy) : Animal(cpy) {
-//     this->brain = new Brain(*cpy.brain);
-// }
 
 Dog &Dog::operator=(const Dog &cpy) {
     std::cout << "Dog assignment called\n";

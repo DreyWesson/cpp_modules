@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:42:58 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/06 02:08:11 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/06 13:41:18 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Dog::Dog() : Animal()
 {
-    // std::cout << "Dog constructor called\n";
+    std::cout << "Dog constructor called\n";
     type = "Dog";
 }
 
 Dog::~Dog()
 {
-    // std::cout << "Dog destructor called\n";
+    std::cout << "Dog destructor called\n";
 }
 
 Dog::Dog(const Dog &cpy) {
