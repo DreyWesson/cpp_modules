@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:00:02 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 12:03:10 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:47:40 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "AMateria.hpp"
 
 Character::Character() : _name("") {
-    std::cout << "\033[2;37m""\033[3m" "CHARACTER constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "CHARACTER constructor called\n" "\033[0m";
     for (int i = 0; i < 4; i++)
     {
         this->_inventory[i] = NULL;
@@ -33,11 +33,11 @@ Character::~Character() {
             this->_leftOnFloor[i] = NULL;
         }
     }
-    std::cout << "\033[2;37m""\033[3m" "CHARACTER deconstructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "CHARACTER deconstructor called\n" "\033[0m";
 }
 
 Character::Character(std::string const &name) : _name(name) {
-    std::cout << "\033[2;37m""\033[3m" "CHARACTER parameterized constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "CHARACTER parameterized constructor called\n" "\033[0m";
     for (int i = 0; i < 4; i++)
     {
         this->_inventory[i] = NULL;
@@ -85,20 +85,13 @@ void    Character::equip(AMateria* m) {
     for (int i = 0; i < 4; i++) {
         if (!this->_inventory[i]) {
             this->_inventory[i] = m->clone();
-            std::cout << "Character " << this->_name << " equipped at index " << i << " with " << m->getType() << std::endl;
+            // std::cout << "Character " << this->_name << " equipped at index " << i << " with " << m->getType() << std::endl;
             break;
         }
     }
 }
 
 void Character::unequip(int idx) {
-    /// @note 
-    // if (idx >= 4 || !this->_inventory[idx])
-    //     return ;
-    // std::cout << "Character " << this->_name << " unequipped from index " << std::endl; 
-    // delete this->_inventory[idx];
-    // this->_inventory[idx] = NULL;
-
     if (idx >= 0 && idx < 4 && this->_inventory[idx]) {
             // Store the unequipped AMateria pointer for destruction
             this->_leftOnFloor[idx] = this->_inventory[idx];

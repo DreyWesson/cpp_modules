@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 11:21:12 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 12:03:35 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:45:12 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@
 
 MateriaSource::MateriaSource()
 {
-    std::cout << "\033[2;37m""\033[3m" "MATERIASOURCE constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "MATERIASOURCE constructor called\n" "\033[0m";
         for (int i = 0; i < 4; i++)
             _store[i] = NULL;
 }
 
 MateriaSource::~MateriaSource()
 {
-    std::cout << "\033[2;37m""\033[3m" "MATERIASOURCE destructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "MATERIASOURCE destructor called\n" "\033[0m";
     for (int i = 0; i < 4; i++) {
         delete _store[i];
         _store[i] = NULL;
@@ -54,7 +54,26 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &cpy) {
 }
 void MateriaSource::learnMateria(AMateria* cpy) {
     for (int i = 0; i < 4; i++) {
-        _store[i] = NULL;
-        _store[i] = cpy->clone();
+        if (!_store[i]) {
+            _store[i] = cpy->clone();
+            break;
+        }
     }
+}
+
+
+AMateria* MateriaSource::createMateria(std::string const & type) {
+    for (int i = 0; i < 4; i++) {
+        if (_store[i] && _store[i]->getType() == type)
+            return (_store[i]->clone());
+    }
+    return (0);
+}
+
+AMateria* MateriaSource::getMateria( std::string const & type )
+{
+    for (int i = 0; i < 4; i++)
+        if (_store[i] && _store[i]->getType() == type)
+            return _store[i];
+    return NULL;
 }

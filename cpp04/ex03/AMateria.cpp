@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 00:45:26 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 12:12:25 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 13:37:40 by oduwoledare      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ std::string const &AMateria::getType() const {
 
 // AMateria*   AMateria::clone() const; // do nothing - it's a pure virtual function
 
-void        AMateria::use(ICharacter& target) {
+void AMateria::use(ICharacter& target) {
     std::cout << "AMateria used on " << target.getName() << " *";
 }
 
