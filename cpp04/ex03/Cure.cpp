@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:03:30 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/08 20:24:09 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 12:06:00 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,13 @@
 Cure::Cure() : AMateria("cure")
 {
 
-    std::cout << "\033[2;37m""\033[3m" "CURE constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "CURE constructor called\n" "\033[0m";
 
 }
 
 Cure::~Cure()
 {
-    std::cout << "\033[2;37m""\033[3m" "CURE deconstructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "CURE deconstructor called\n" "\033[0m";
 }
 
 Cure::Cure(const Cure &cpy) : AMateria("cure") {

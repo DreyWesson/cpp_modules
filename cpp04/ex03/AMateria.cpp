@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/07 00:45:26 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/08 20:32:13 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 12:12:25 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 AMateria::AMateria() : _type("")
 {
-    std::cout << "\033[2;37m""\033[3m" "AMATERIA constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "AMATERIA constructor called\n" "\033[0m";
 }
 
 AMateria::~AMateria()
 {
-    std::cout << "\033[2;37m""\033[3m" "AMATERIA destructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "AMATERIA destructor called\n" "\033[0m";
 }
 
 AMateria::AMateria(std::string const & type) : _type(type) {
-    std::cout << "\033[2;37m""\033[3m" "AMATERIA parameterized constructor called\n" "\033[0m";
+    // std::cout << "\033[2;37m""\033[3m" "AMATERIA parameterized constructor called\n" "\033[0m";
 
 }
 
