@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:03:24 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/08 18:53:55 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 18:45:52 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ public:
     Cure(void);
     Cure(const Cure &cpy);
     Cure &operator=(const Cure &cpy);
-    ~Cure(void);
+    virtual ~Cure(void);
 
     virtual AMateria* clone() const;
     virtual void        use(ICharacter& target);

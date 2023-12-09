@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Character.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
+/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:00:02 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 13:47:40 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/12/09 19:05:08 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,24 +54,17 @@ Character::Character(Character const &src) : _name(src._name) {
 }
 
 Character &Character::operator=(Character const &cpy) {
-    /// @note BEFORE
-    // if (this != &rhs)
-    // {
-    //     this->_name = rhs._name;
-    //     for (int i = 0; i < 4; i++)
-    //         this->_inventory[i] = rhs._inventory[i];
-    // }
-    // return *this;
     if (this != &cpy)
     {
         this->_name = cpy._name;
         for (int i = 0; i < 4; i++) {
             delete this->_inventory[i];
+            this->_inventory[i] = nullptr;
+        }
+
+        for (int i = 0; i < 4; i++) {
             if (cpy._inventory[i])
                 this->_inventory[i] = cpy._inventory[i]->clone();
-            else
-                this->_inventory[i] = NULL;
-            
         }
     }
     return (*this);
@@ -85,7 +78,6 @@ void    Character::equip(AMateria* m) {
     for (int i = 0; i < 4; i++) {
         if (!this->_inventory[i]) {
             this->_inventory[i] = m->clone();
-            // std::cout << "Character " << this->_name << " equipped at index " << i << " with " << m->getType() << std::endl;
             break;
         }
     }
@@ -93,7 +85,6 @@ void    Character::equip(AMateria* m) {
 
 void Character::unequip(int idx) {
     if (idx >= 0 && idx < 4 && this->_inventory[idx]) {
-            // Store the unequipped AMateria pointer for destruction
             this->_leftOnFloor[idx] = this->_inventory[idx];
             std::cout << "Character " << this->_name << " unequipped from index " << idx << std::endl;
             this->_inventory[idx] = NULL;

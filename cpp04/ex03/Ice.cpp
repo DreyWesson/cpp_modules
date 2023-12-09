@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:03:34 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 12:06:14 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:05:50 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,11 @@
 Ice::Ice() : AMateria("ice")
 {
     // std::cout << "\033[2;37m""\033[3m" "ICE constructor called\n" "\033[0m";
-
 }
 
 Ice::~Ice()
 {
     // std::cout << "\033[2;37m""\033[3m" "ICE deconstructor called\n" "\033[0m";
-
 }
 
 Ice::Ice(const Ice &cpy) : AMateria("ice") {

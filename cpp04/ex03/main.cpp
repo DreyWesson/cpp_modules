@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
+/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:42:05 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 13:45:56 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/12/09 19:01:16 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,7 @@ void debug_logic() {
     bob.unequip(0);
     bob.use(0, eve); // Should do nothing
 }
-
-int main()
-{
+void subject_test() {
     IMateriaSource* src = new MateriaSource();
     src->learnMateria(new Ice());
     src->learnMateria(new Cure());
@@ -66,6 +64,11 @@ int main()
     delete bob;
     delete me;
     delete src;
-    // debug_logic();
+}
+
+int main()
+{
+    subject_test();
+    debug_logic();
     return 0;
 }

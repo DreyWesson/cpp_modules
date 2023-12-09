@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   MateriaSource.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oduwoledare <oduwoledare@student.42.fr>    +#+  +:+       +#+        */
+/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/09 11:21:12 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 13:45:12 by oduwoledare      ###   ########.fr       */
+/*   Updated: 2023/12/09 18:59:30 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ MateriaSource &MateriaSource::operator=(const MateriaSource &cpy) {
 void MateriaSource::learnMateria(AMateria* cpy) {
     for (int i = 0; i < 4; i++) {
         if (!_store[i]) {
-            _store[i] = cpy->clone();
+            _store[i] = cpy;
             break;
         }
     }
@@ -65,7 +65,7 @@ void MateriaSource::learnMateria(AMateria* cpy) {
 AMateria* MateriaSource::createMateria(std::string const & type) {
     for (int i = 0; i < 4; i++) {
         if (_store[i] && _store[i]->getType() == type)
-            return (_store[i]->clone());
+            return (_store[i]);
     }
     return (0);
 }
