@@ -1,12 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ICharacter.cpp                                     :+:      :+:    :+:   */
+/*   Cure.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/07 00:46:42 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/07 00:48:32 by doduwole         ###   ########.fr       */
+/*   Created: 2023/12/08 14:03:24 by doduwole          #+#    #+#             */
+/*   Updated: 2023/12/08 18:53:55 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef CURE_H
+#define CURE_H
+
+#include <iostream>
+#include "AMateria.hpp"
+
+class Cure : public AMateria
+{
+public:
+    Cure(void);
+    Cure(const Cure &cpy);
+    Cure &operator=(const Cure &cpy);
+    ~Cure(void);
+
+    virtual AMateria* clone() const;
+    virtual void        use(ICharacter& target);
+};
+
+#endif
