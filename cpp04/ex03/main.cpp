@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 18:42:05 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 19:01:16 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/09 19:27:19 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,6 @@ void subject_test() {
 int main()
 {
     subject_test();
-    debug_logic();
+    // debug_logic();
     return 0;
 }

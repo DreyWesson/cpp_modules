@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 15:00:02 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/09 19:05:08 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/11 14:09:29 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ Character &Character::operator=(Character const &cpy) {
         this->_name = cpy._name;
         for (int i = 0; i < 4; i++) {
             delete this->_inventory[i];
-            this->_inventory[i] = nullptr;
+            this->_inventory[i] = NULL;
         }
 
         for (int i = 0; i < 4; i++) {
@@ -86,7 +86,7 @@ void    Character::equip(AMateria* m) {
 void Character::unequip(int idx) {
     if (idx >= 0 && idx < 4 && this->_inventory[idx]) {
             this->_leftOnFloor[idx] = this->_inventory[idx];
-            std::cout << "Character " << this->_name << " unequipped from index " << idx << std::endl;
+            // std::cout << "Character " << this->_name << " unequipped from index " << idx << std::endl;
             this->_inventory[idx] = NULL;
         } else {
             std::cout << "\033[31m""Invalid index or empty slot.""\033[0m" << std::endl;
@@ -95,7 +95,7 @@ void Character::unequip(int idx) {
 
 void    Character::use(int idx, ICharacter& target) {
     if (idx >= 0 && idx < 4 && this->_inventory[idx]) {
-        std::cout << "Character " << this->_name << " uses " << this->_inventory[idx]->getType() << std::endl;
+        // std::cout << "Character " << this->_name << " uses " << this->_inventory[idx]->getType() << std::endl;
         this->_inventory[idx]->use(target);
     } else {
         std::cout << "\033[31m""Invalid index or empty slot.\n""\033[0m";
