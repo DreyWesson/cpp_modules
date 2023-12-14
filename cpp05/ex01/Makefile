@@ -1,7 +1,4 @@
-NAME = material
-
-
-# FLAGS
+NAME = form 
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98
 
