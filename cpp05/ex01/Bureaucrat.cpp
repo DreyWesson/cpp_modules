@@ -66,11 +66,9 @@ std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
 void Bureaucrat::signForm(Form& f) {
 	try {
 		    f.beSigned(*this);
-            std::cout << "DEBUG\n";
-
 		    std::cout << *this << " signed " << f.getName() << "\n";
 	}
-	catch(GradeTooLowException& e) {
+	catch(std::exception& e) {
 			std::cout << *this << " couldn't sign " << f.getName() << " because " << e.what();
 	}
 

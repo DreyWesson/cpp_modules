@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:59:45 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/15 16:19:00 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:15:31 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,11 @@ int main(void) {
         // std::cout << politico;  
         // test_decrement();
         test_increment();
-    } catch (const Bureaucrat::GradeTooHighException& e) {
+    } catch (Bureaucrat::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;
-    } catch (const Bureaucrat::GradeTooLowException& e) {
+    } catch (Bureaucrat::GradeTooLowException& e) {
+        std::cout << e.what() << std::endl;
+    } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
 
