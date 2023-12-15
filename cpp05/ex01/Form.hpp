@@ -12,22 +12,20 @@ private:
     const std::string _name;
 	bool _isSigned;
     const int _gradeToSign;
-    const int _gradeToExecuteIt;
+    const int _gradeToExecute;
 
 public:
-    Form(const std::string name, int _gradeToSign, int _gradeToExecuteIt);
+    Form(const std::string name, int _gradeToSign, int _gradeToExecute);
     Form(const Form &src);
     Form &operator=(const Form &src);
     ~Form(void);
 
 	void beSigned(const Bureaucrat &b);
     
-    const std::string getName(void) const;
-	bool getSign(void);
-	int getGrade(void) const;
-
-    void increment(void);
-    void decrement(void);
+    std::string getName(void) const;
+	bool getSign(void) const;
+	int getGradeToSign(void) const;
+	int getGradeToExecute(void) const;
 
     class GradeTooHighException;
     class GradeTooLowException;    

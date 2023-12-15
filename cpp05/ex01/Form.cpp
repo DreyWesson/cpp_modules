@@ -1,11 +1,6 @@
-
 #include "Form.hpp"
 
-// Form::Form(void) {
-//     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT constructor called\n" "\033[0m";
-// }
-
-Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecuteIt(gradeToExecute) {
+Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT parameterized constructor called\n" "\033[0m";
     if (gradeToSign < 1)
         throw Form::GradeTooHighException();
@@ -18,65 +13,54 @@ Form::~Form()
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT destructor called\n" "\033[0m";
 }
 
-Form::Form(const Form &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecuteIt(src._gradeToExecuteIt) {}
+Form::Form(const Form &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
 
 Form &Form::operator=(const Form &src) {
     if (this != &src) {
-        this->_gradeToSign = src.getSign();
-        // this->_gradeToExecuteIt = src._gradeToExecuteIt;
-
+        this->_isSigned = src.getSign();
     }
     return (*this);
 }
 
-const std::string Form::getName(void) const {
+std::string Form::getName(void) const {
       return (this->_name);  
 }
 
-int Form::getGrade(void) const {
-    return (this->_grade);
+int Form::getGradeToExecute(void) const {
+    return (this->_gradeToSign);
 }
 
-bool Form::getSign(void) {
+int Form::getGradeToSign(void) const {
+    return (this->_gradeToSign);
+}
+
+bool Form::getSign(void) const {
 	return (_isSigned);
 }
 
-void Form::increment(void) {
-    try
-    {
-        if (this->_grade > 1)
-            this->_grade -= 1;
-        else
-            throw Form::GradeTooHighException(); 
+Form &Form::operator=(const Form &src) {
+    if (this != &src) {
+        this->_isSigned = src.getSign();
     }
-    catch(GradeTooHighException& e)
-    {
-        std::cout << e.what();
-    }
-}
-
-void Form::decrement(void) {
-    try
-    {
-        if (this->_grade < 150)
-            this->_grade += 1;
-        else
-            throw Form::GradeTooLowException(); 
-    }
-    catch(GradeTooLowException& e)
-    {
-        std::cout << e.what();
-    }
+    return (*this);
 }
 
 void Form::beSigned(const Bureaucrat &b) {
-
+    if (b.getGrade() > _gradeToSign)
+        throw GradeTooLowException();
+    _isSigned = true;
 }
 
 /**
  * Overloaded Insertion Operators
 */
 std::ostream & operator<<(std::ostream &cout, Form const & src) {
-    std::cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";
+    std::cout << "#############################################\n";
+    std::cout << "#            Form's Information\n";
+    std::cout << "#  Name: ""\033[33m" << src.getName() << "\033[0m""\n";
+    std::cout << "#  isSigned: ""\033[33m" << src.getSign() << "\033[0m""\n";
+    std::cout << "#  gradeToSign: ""\033[33m" << src.getGradeToSign() << "\033[0m""\n";
+    std::cout << "#  gradeToSign: ""\033[33m" << src.getGradeToExecute() << "\033[0m""\n";
+    std::cout << "#############################################\n";
     return (cout);
 }
