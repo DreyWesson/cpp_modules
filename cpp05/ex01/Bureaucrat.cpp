@@ -43,31 +43,16 @@ int Bureaucrat::getGrade(void) const {
 }
 
 void Bureaucrat::increment(void) {
-    try
-    {
-        if (this->_grade > 1)
-            this->_grade -= 1;
-        else
-            throw Bureaucrat::GradeTooHighException(); 
-    }
-    catch(GradeTooHighException& e)
-    {
-        std::cout << e.what();
-    }
+    if (this->_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    this->_grade -= 1;
+
 }
 
 void Bureaucrat::decrement(void) {
-    try
-    {
-        if (this->_grade < 150)
-            this->_grade += 1;
-        else
-            throw Bureaucrat::GradeTooLowException(); 
-    }
-    catch(GradeTooLowException& e)
-    {
-        std::cout << e.what();
-    }
+    if (this->_grade > 150)
+        throw Bureaucrat::GradeTooLowException(); 
+    this->_grade += 1;
 }
 
 /**
