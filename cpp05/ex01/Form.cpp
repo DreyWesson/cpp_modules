@@ -1,7 +1,8 @@
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
-Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute) {
-    std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT parameterized constructor called\n" "\033[0m";
+Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
+    std::cout << "\033[2;37m""\033[3m" "FORM parameterized constructor called\n" "\033[0m";
     if (gradeToSign < 1)
         throw Form::GradeTooHighException();
     else if (gradeToSign > 150)
@@ -10,7 +11,7 @@ Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(
 
 Form::~Form()
 {
-    std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT destructor called\n" "\033[0m";
+    std::cout << "\033[2;37m""\033[3m" "FORM destructor called\n" "\033[0m";
 }
 
 Form::Form(const Form &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
@@ -27,7 +28,7 @@ std::string Form::getName(void) const {
 }
 
 int Form::getGradeToExecute(void) const {
-    return (this->_gradeToSign);
+    return (this->_gradeToExecute);
 }
 
 int Form::getGradeToSign(void) const {
@@ -36,13 +37,6 @@ int Form::getGradeToSign(void) const {
 
 bool Form::getSign(void) const {
 	return (_isSigned);
-}
-
-Form &Form::operator=(const Form &src) {
-    if (this != &src) {
-        this->_isSigned = src.getSign();
-    }
-    return (*this);
 }
 
 void Form::beSigned(const Bureaucrat &b) {
@@ -55,12 +49,12 @@ void Form::beSigned(const Bureaucrat &b) {
  * Overloaded Insertion Operators
 */
 std::ostream & operator<<(std::ostream &cout, Form const & src) {
-    std::cout << "#############################################\n";
-    std::cout << "#            Form's Information\n";
-    std::cout << "#  Name: ""\033[33m" << src.getName() << "\033[0m""\n";
-    std::cout << "#  isSigned: ""\033[33m" << src.getSign() << "\033[0m""\n";
-    std::cout << "#  gradeToSign: ""\033[33m" << src.getGradeToSign() << "\033[0m""\n";
-    std::cout << "#  gradeToSign: ""\033[33m" << src.getGradeToExecute() << "\033[0m""\n";
-    std::cout << "#############################################\n";
+    cout << "#############################################\n";
+    cout << "#            Form's Information\n";
+    cout << "#  Name: ""\033[33m" << src.getName() << "\033[0m""\n";
+    cout << "#  isSigned: ""\033[33m" << src.getSign() << "\033[0m""\n";
+    cout << "#  gradeToSign: ""\033[33m" << src.getGradeToSign() << "\033[0m""\n";
+    cout << "#  gradeToSign: ""\033[33m" << src.getGradeToExecute() << "\033[0m""\n";
+    cout << "#############################################\n";
     return (cout);
 }

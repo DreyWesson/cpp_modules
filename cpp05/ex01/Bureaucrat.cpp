@@ -1,5 +1,6 @@
-
+#include "Form.hpp"
 #include "Bureaucrat.hpp"
+
 
 Bureaucrat::Bureaucrat(void) {
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT constructor called\n" "\033[0m";
@@ -12,24 +13,12 @@ Bureaucrat::Bureaucrat(const std::string name) : _name(name) {
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT parameterized constructor called\n" "\033[0m";
-    try
-    {
-        if (grade < 1)
-            throw Bureaucrat::GradeTooHighException();
-        else if (grade > 150)
-            throw Bureaucrat::GradeTooLowException();
-        else
-            this->_grade = grade;
-    }
-    catch(GradeTooHighException& e)
-    {
-        std::cout << e.what();
-    }
-    catch(GradeTooLowException& e)
-    {
-        std::cout << e.what();
-    }
-    
+    if (grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    else if (grade > 150)
+        throw Bureaucrat::GradeTooLowException();
+    else
+        this->_grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -85,15 +74,19 @@ void Bureaucrat::decrement(void) {
  * Overloaded Insertion Operators
 */
 std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
-    std::cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";
+    cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";
     return (cout);
 }
 
-void Bureaucrat::signForm(Form &f) {
-	// if (f) {
-	// 	std::cout << "<bureaucrat> signed <form>";
-	// } else {
-	// 	std::cout << "<bureaucrat> couldn't sign <form> because <reason>";
-	// }
+void Bureaucrat::signForm(Form& f) {
+	try {
+		f.beSigned(*this);
+		std::cout << *this << " signed " << f.getName() << "\n";
+
+	}
+	catch(GradeTooLowException& e) {
+			std::cout << *this << " couldn't sign " << f.getName() << " because " << e.what();
+	}
+
 }
 

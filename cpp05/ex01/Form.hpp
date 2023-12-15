@@ -3,16 +3,15 @@
 
 #include <iostream>
 #include <stdexcept>
-#include "Bureaucrat.hpp"
 
-const Bureaucrat;
+class Bureaucrat;
 
 class Form {
 private:
     const std::string _name;
-	bool _isSigned;
     const int _gradeToSign;
     const int _gradeToExecute;
+	bool _isSigned;
 
 public:
     Form(const std::string name, int _gradeToSign, int _gradeToExecute);
@@ -21,7 +20,6 @@ public:
     ~Form(void);
 
 	void beSigned(const Bureaucrat &b);
-    
     std::string getName(void) const;
 	bool getSign(void) const;
 	int getGradeToSign(void) const;
