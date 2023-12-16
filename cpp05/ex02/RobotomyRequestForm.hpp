@@ -5,15 +5,15 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "AForm.hpp"
 
-class RobotomyRequestForm {
+
+class RobotomyRequestForm : public AForm {
 private:
-    int _sign;
-    int _exec;
+    std::string _target;
 
 public:
-    RobotomyRequestForm(void);
-    RobotomyRequestForm(int sign, int exec);
+    RobotomyRequestForm(std::string target);
     RobotomyRequestForm(const RobotomyRequestForm &src);
     RobotomyRequestForm &operator=(const RobotomyRequestForm &src);
     ~RobotomyRequestForm(void);

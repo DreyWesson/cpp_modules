@@ -4,12 +4,13 @@
 #include <iostream>
 #include <stdexcept>
 
-class Form;
+class AForm;
 
 class Bureaucrat {
 private:
     const std::string _name;
     int _grade;
+    int sign;
 
 public:
     Bureaucrat(void);
@@ -19,7 +20,7 @@ public:
     Bureaucrat &operator=(const Bureaucrat &src);
     ~Bureaucrat(void);
 
-	void signForm(Form &f);
+	void signForm(AForm &f);
     
     const std::string getName(void) const;
     int getGrade(void) const;

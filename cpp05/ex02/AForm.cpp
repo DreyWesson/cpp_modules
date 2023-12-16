@@ -55,7 +55,8 @@ std::ostream & operator<<(std::ostream &cout, AForm const & src) {
     cout << "#  Name: ""\033[33m" << src.getName() << "\033[0m""\n";
     cout << "#  isSigned: ""\033[33m" << src.getSign() << "\033[0m""\n";
     cout << "#  gradeToSign: ""\033[33m" << src.getGradeToSign() << "\033[0m""\n";
-    cout << "#  gradeToSign: ""\033[33m" << src.getGradeToExecute() << "\033[0m""\n";
     cout << "#############################################\n";
     return (cout);
 }
+
+

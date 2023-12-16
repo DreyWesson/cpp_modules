@@ -1,20 +1,15 @@
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(void) {
-    std::cout << "\033[2;37m""\033[3m" "RobotomyRequestForm constructor called\n" "\033[0m";
-}
-
-RobotomyRequestForm::RobotomyRequestForm(int sign, int exec) : _sign(sign), _exec(exec) {
+RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {
     std::cout << "\033[2;37m""\033[3m" "RobotomyRequestForm parameterized constructor called\n" "\033[0m";
 
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : _sign(src._sign), _exec(src._exec) {}
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : AForm(src), _target(src._target) {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
     if (this != &src) {
-        this->_sign = src._sign;
-        this->_exec = src._exec;
+        this->_target = src._target;
     }
     return (*this);
 }

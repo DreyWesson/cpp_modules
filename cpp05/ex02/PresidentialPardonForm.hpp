@@ -5,15 +5,14 @@
 #include <iostream>
 #include <stdexcept>
 
+#include "AForm.hpp"
 
-class PresidentialPardonForm {
+class PresidentialPardonForm :public AForm {
 private:
-    int _sign;
-    int _exec;
+    std::string _target;
 
 public:
-    PresidentialPardonForm(void);
-    PresidentialPardonForm(int sign, int exec);
+    PresidentialPardonForm(std::string target);
     PresidentialPardonForm(const PresidentialPardonForm &src);
     PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
     ~PresidentialPardonForm(void);

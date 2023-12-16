@@ -1,4 +1,4 @@
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
 
@@ -34,6 +34,27 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &src) {
     return (*this);
 }
 
+const std::string Bureaucrat::getName(void) const {
+      return (this->_name);  
+}
+
+int Bureaucrat::getGrade(void) const {
+    return (this->_grade);
+}
+
+void Bureaucrat::increment(void) {
+    if (this->_grade < 1)
+        throw Bureaucrat::GradeTooHighException();
+    this->_grade -= 1;
+
+}
+
+void Bureaucrat::decrement(void) {
+    if (this->_grade > 150)
+        throw Bureaucrat::GradeTooLowException(); 
+    this->_grade += 1;
+}
+
 /**
  * Overloaded Insertion Operators
 */
@@ -41,3 +62,17 @@ std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
     cout << src.getName() << ", bureaucrat grade " << src.getGrade();
     return (cout);
 }
+
+void Bureaucrat::signForm(AForm& f) {
+	try {
+		    f.beSigned(*this);
+            sign = f.getSign();
+		    std::cout << *this << " signed " << f.getName() << "\n";
+	}
+	catch(std::exception& e) {
+			std::cout << *this << " couldn't sign " << f.getName() << " because " << e.what();
+	}
+
+}
+
+
