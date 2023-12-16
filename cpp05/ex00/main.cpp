@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:59:45 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/15 19:15:31 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/15 19:41:24 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,5 @@ int main(void) {
     } catch (std::exception& e) {
         std::cout << e.what() << std::endl;
     }
-
     return (0);
 }
