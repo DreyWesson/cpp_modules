@@ -8,11 +8,6 @@ PresidentialPardonForm::PresidentialPardonForm(int sign, int exec) : _sign(sign)
     std::cout << "\033[2;37m""\033[3m" "PresidentialPardonForm parameterized constructor called\n" "\033[0m";
 }
 
-PresidentialPardonForm::~PresidentialPardonForm()
-{
-    std::cout << "\033[2;37m""\033[3m" "PresidentialPardonForm destructor called\n" "\033[0m";
-}
-
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &src) : _sign(src._sign), _exec(src._exec) {}
 
 PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPardonForm &src) {
@@ -21,4 +16,9 @@ PresidentialPardonForm &PresidentialPardonForm::operator=(const PresidentialPard
         this->_exec = src._exec;
     }
     return (*this);
+}
+
+PresidentialPardonForm::~PresidentialPardonForm()
+{
+    std::cout << "\033[2;37m""\033[3m" "PresidentialPardonForm destructor called\n" "\033[0m";
 }

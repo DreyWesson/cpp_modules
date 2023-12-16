@@ -23,7 +23,8 @@ public:
     std::string getName(void) const;
 	bool getSign(void) const;
 	int getGradeToSign(void) const;
-	int getGradeToExecute(void) const;
+	
+    virtual void execute(Bureaucrat const & executor) const = 0;
 
     class GradeTooHighException;
     class GradeTooLowException;    

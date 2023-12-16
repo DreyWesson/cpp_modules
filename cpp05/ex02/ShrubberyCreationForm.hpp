@@ -4,16 +4,15 @@
 
 #include <iostream>
 #include <stdexcept>
+#include "Form.hpp"
 
 
-class ShrubberyCreationForm {
+class ShrubberyCreationForm : public Form {
 private:
-    int _sign;
-    int _exec;
+    std::string _target;
 
 public:
-    ShrubberyCreationForm(void);
-    ShrubberyCreationForm(int sign, int exec);
+    ShrubberyCreationForm(std::string target);
     ShrubberyCreationForm(const ShrubberyCreationForm &src);
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
     ~ShrubberyCreationForm(void);

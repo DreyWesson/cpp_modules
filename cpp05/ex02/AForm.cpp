@@ -31,9 +31,6 @@ std::string AForm::getName(void) const {
       return (this->_name);  
 }
 
-int AForm::getGradeToExecute(void) const {
-    return (this->_gradeToExecute);
-}
 
 int AForm::getGradeToSign(void) const {
     return (this->_gradeToSign);

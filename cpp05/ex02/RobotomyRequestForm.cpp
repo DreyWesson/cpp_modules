@@ -9,11 +9,6 @@ RobotomyRequestForm::RobotomyRequestForm(int sign, int exec) : _sign(sign), _exe
 
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
-{
-    std::cout << "\033[2;37m""\033[3m" "RobotomyRequestForm destructor called\n" "\033[0m";
-}
-
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm &src) : _sign(src._sign), _exec(src._exec) {}
 
 RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &src) {
@@ -22,4 +17,9 @@ RobotomyRequestForm &RobotomyRequestForm::operator=(const RobotomyRequestForm &s
         this->_exec = src._exec;
     }
     return (*this);
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+    std::cout << "\033[2;37m""\033[3m" "RobotomyRequestForm destructor called\n" "\033[0m";
 }
