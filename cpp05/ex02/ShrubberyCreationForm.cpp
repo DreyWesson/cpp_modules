@@ -16,8 +16,13 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 ShrubberyCreationForm::~ShrubberyCreationForm() {}
 
 void ShrubberyCreationForm::execute(Bureaucrat const & executor) const {
-    // (void) executor;
-    // if (!executor.getSign())
-    //     throw 
-    
+    if (!getSign())
+        throw FormNotSignedException();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
+    std::ofstream file((_target + "_shrubbery").c_str());
+    if (!file.is_open())
+        throw ShrubberyCreationForm::FileOpenException();
+    file << "ASCII Trees";
+    file.close();
 }

@@ -36,6 +36,10 @@ int AForm::getGradeToSign(void) const {
     return (this->_gradeToSign);
 }
 
+int AForm::getGradeToExecute(void) const {
+    return (this->_gradeToSign);
+}
+
 bool AForm::getSign(void) const {
 	return (_isSigned);
 }

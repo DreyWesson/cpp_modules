@@ -4,37 +4,44 @@
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 
-// void no_clearance() {
-// 	Bureaucrat politico("Optimus prime", 15);
-// 	AForm form("HoA", 4, 4);
-// 	politico.signForm(form);
-// }
+// Creates a bureaucrat with a grade of 50.
+// Creates instances of ShrubberyCreationForm, RobotomyRequestForm, and PresidentialPardonForm.
+// Tries to execute the forms without signing them, expecting exceptions.
+// Signs the forms using the bureaucrat.
+// Executes the signed forms, demonstrating the logic of each form.
+// Tries to create a bureaucrat with an invalid grade (200), expecting a GradeTooLowException.
 
-// void got_clearance() {
-// 	Bureaucrat politico("Optimus prime", 2);
-// 	AForm form("HoA", 54, 54);
-// 	politico.signForm(form);
-// }
+int main() {
+    try {
+        // Create a bureaucrat
+        Bureaucrat bureaucrat("John Doe", 50);
 
-// void no_exec() {
-// 	Bureaucrat politico("Optimus prime", 2);
-// 	AForm form("HoA", 54, -54);
-// 	politico.signForm(form);
-// }
+        // Create forms
+        ShrubberyCreationForm shrubberyForm("Home");
+        RobotomyRequestForm robotomyForm("Target");
+        PresidentialPardonForm pardonForm("Person");
 
-int main(void) {
-    ShrubberyCreationForm x;
-	// try
-	// {
-	// 	// no_clearance();
-	// 	// got_clearance();
-	// 	// no_exec();
-    // } catch (Bureaucrat::GradeTooHighException& e) {
-    //     std::cout << e.what();
-    // } catch (Bureaucrat::GradeTooLowException& e) {
-    //     std::cout << e.what();
-    // } catch (std::exception& e) {
-    //     std::cout << e.what();
-    // }
-	return (0);
+        // Try to execute forms without signing
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(pardonForm);
+
+        // Sign the forms
+        bureaucrat.signForm(shrubberyForm);
+        bureaucrat.signForm(robotomyForm);
+        bureaucrat.signForm(pardonForm);
+
+        // Execute the forms
+        bureaucrat.executeForm(shrubberyForm);
+        bureaucrat.executeForm(robotomyForm);
+        bureaucrat.executeForm(pardonForm);
+
+        // Try to create a bureaucrat with an invalid grade
+        Bureaucrat invalidBureaucrat("Invalid", 200);  // Should throw GradeTooLowException
+
+    } catch (std::exception &e) {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+
+    return 0;
 }
