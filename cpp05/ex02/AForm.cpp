@@ -2,7 +2,6 @@
 #include "Bureaucrat.hpp"
 
 AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
-    std::cout << "\033[2;37m""\033[3m" "AFORM parameterized constructor called\n" "\033[0m";
     if (gradeToSign < 1)
         throw AForm::GradeTooHighException();
     else if (gradeToSign > 150)
@@ -13,9 +12,14 @@ AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : _nam
         throw AForm::GradeTooLowException();
 }
 
-AForm::~AForm()
+AForm::~AForm() {}
+
+void AForm::checkPermission(Bureaucrat const & executor) const
 {
-    std::cout << "\033[2;37m""\033[3m" "AFORM destructor called\n" "\033[0m";
+    if (!getSign())
+        throw FormNotSignedException();
+    if (executor.getGrade() > getGradeToExecute())
+        throw GradeTooLowException();
 }
 
 AForm::AForm(const AForm &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
@@ -37,7 +41,7 @@ int AForm::getGradeToSign(void) const {
 }
 
 int AForm::getGradeToExecute(void) const {
-    return (this->_gradeToSign);
+    return (this->_gradeToExecute);
 }
 
 bool AForm::getSign(void) const {

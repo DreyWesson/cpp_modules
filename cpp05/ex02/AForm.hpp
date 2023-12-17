@@ -26,30 +26,38 @@ public:
 	int getGradeToExecute(void) const;
 
     virtual void execute(Bureaucrat const & executor) const = 0;
+    void checkPermission(Bureaucrat const & executor) const;
 
     class GradeTooHighException;
     class GradeTooLowException;
     class FormNotSignedException;
+    class FileOpenException;
 };
 
 class AForm::GradeTooHighException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any higher than these\n");
+        return ("GradeTooHighException: Grade is too high\n");
     }
 };
 
 class AForm::GradeTooLowException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any lower than these\n");
+        return ("GradeTooLowException: Grade is too low\n");
     }
 };
 
 class AForm::FormNotSignedException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("Form needs to be signed to be able to execute\n");
+        return ("FormNotSignedException: Form needs to be signed to be able to execute\n");
+    }
+};
+class AForm::FileOpenException : public std::exception {
+public:
+    virtual const char* what() const throw() {
+        return ("FileOpenException: File fails to open\n");
     }
 };
 

@@ -25,19 +25,33 @@ int main() {
         bureaucrat.executeForm(shrubberyForm);
         bureaucrat.executeForm(robotomyForm);
         bureaucrat.executeForm(pardonForm);
+        std::cout << "\n";
 
         // Sign the forms
         bureaucrat.signForm(shrubberyForm);
         bureaucrat.signForm(robotomyForm);
         bureaucrat.signForm(pardonForm);
 
+        std::cout << "\n";
+
         // Execute the forms
         bureaucrat.executeForm(shrubberyForm);
         bureaucrat.executeForm(robotomyForm);
         bureaucrat.executeForm(pardonForm);
 
-        // Try to create a bureaucrat with an invalid grade
-        Bureaucrat invalidBureaucrat("Invalid", 200);  // Should throw GradeTooLowException
+        // Try to create a bureaucrat with an invalid grade (too high)
+        try {
+            Bureaucrat invalidBureaucratHigh("InvalidHigh", 200);  // Should throw GradeTooLowException
+        } catch (std::exception &e) {
+            std::cerr << "Exception: " << e.what() << std::endl;
+        }
+
+        // Try to create a bureaucrat with an invalid grade (too low)
+        try {
+            Bureaucrat invalidBureaucratLow("InvalidLow", 0);  // Should throw GradeTooHighException
+        } catch (std::exception &e) {
+            std::cerr << "Exception: " << e.what() << std::endl;
+        }
 
     } catch (std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;

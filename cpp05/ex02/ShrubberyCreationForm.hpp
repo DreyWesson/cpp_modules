@@ -20,15 +20,8 @@ public:
     ShrubberyCreationForm &operator=(const ShrubberyCreationForm &src);
     ~ShrubberyCreationForm(void);
     void execute(Bureaucrat const & executor) const;
-
-    class FileOpenException;
 };
 
-class ShrubberyCreationForm::FileOpenException : public std::exception {
-public:
-    virtual const char* what() const throw() {
-        return ("File fails to open\n");
-    }
-};
+
 
 #endif
