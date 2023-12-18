@@ -1,50 +1,69 @@
-NAME = bureaucrat
+# Define the name of the target executable
+NAME = form
 
-
-# FLAGS
+# Compiler and compiler flags
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98
+DEPFLAGS = -MMD -MP
 
-
-# Del
+# Command for removing files and directories
 RM = rm -rf
 
+# Command for creating directories
+MKDIR = mkdir -p
 
 # DIRECTORIES
-SRC =	$(wildcard *.cpp **/*.cpp **/*/*.cpp)
 OBJ_DIR = obj
-SRC_DIR = src
+DEP_DIR = dep
 INC_DIR = inc
+
+# Get all .cpp files in the root directory and its subdirectories
+# SRC = $(wildcard *.cpp **/*.cpp **/*/*.cpp)
+SRC = main.cpp Bureaucrat.cpp
+
+# Generate a list of object files by replacing .cpp with .o
 OBJS = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-
-# COLOURS
+# Define colors for terminal output
 NONE='\033[0m'
 GREEN='\033[32m'
-GRAY='\033[2;37m'
 CURSIVE='\033[3m'
-WARNING='\033[33m'
-DANGER='\033[31m'
+GRAY='\033[2;37m'
 
+# Include dependency files
+-include $(wildcard $(DEP_DIR)/*.d)
+INC_FLAGS = -I$(INC_DIR)
+
+# Default target (build the executable)# Default target (build the executable)
 all: $(NAME)
 
+# Link the object files to create the executable
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(CFLAGS) -o $@ 
+	@$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
-$(OBJ_DIR)/%.o: %.cpp 
+# Build rule for each object file
+$(OBJ_DIR)/%.o: %.cpp
 	@echo $(CURSIVE) "     - Building $<" $(NONE)
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $(DEP_DIR)
+	@$(CC) $(CFLAGS) $(DEPFLAGS) $(INC_FLAGS) -c $< -o $@
+	@mv $(OBJ_DIR)/$*.d $(DEP_DIR)/
+#@echo "Dependencies for $*:" 	# uncomment this to debug your dependencies
+#@cat $(DEP_DIR)/$*.d			# uncomment this to debug your dependencies
 
+# Clean up object files and dependencies
 clean:
-	@$(RM) $(OBJS) $(OBJ_DIR) > /dev/null || true
-	@echo $(CURSIVE)$(GRAY) "     - Object files removed" $(NONE)
+	@$(RM) $(OBJS) $(OBJ_DIR) $(DEP_DIR) > /dev/null || true
+	@echo $(CURSIVE)$(GRAY) "     - Object files, dependencies, and $(NAME) removed" $(NONE)
 
+# Remove the executable
 fclean: clean
-	@rm -f $(NAME) > /dev/null || true
+	@$(RM) $(NAME) > /dev/null || true
 	@echo $(CURSIVE)$(GRAY) "     - $(NAME) removed" $(NONE)
 
+# Rebuild the project by cleaning and building again
 re: fclean all
 
+# Define these targets as phony to avoid conflicts with file names
 .PHONY: all clean fclean re

@@ -1,5 +1,5 @@
 
-#include "Bureaucrat.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) {
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT constructor called\n" "\033[0m";
@@ -53,9 +53,6 @@ void Bureaucrat::decrement(void) {
     this->_grade += 1;
 }
 
-/**
- * Overloaded Insertion Operators
-*/
 std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
     std::cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";
     return (cout);

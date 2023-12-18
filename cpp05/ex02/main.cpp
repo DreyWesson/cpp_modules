@@ -1,8 +1,8 @@
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
-#include "PresidentialPardonForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "ShrubberyCreationForm.hpp"
+#include "./inc/AForm.hpp"
+#include "./inc/Bureaucrat.hpp"
+#include "./inc/PresidentialPardonForm.hpp"
+#include "./inc/RobotomyRequestForm.hpp"
+#include "./inc/ShrubberyCreationForm.hpp"
 
 // Creates a bureaucrat with a grade of 50.
 // Creates instances of ShrubberyCreationForm, RobotomyRequestForm, and PresidentialPardonForm.

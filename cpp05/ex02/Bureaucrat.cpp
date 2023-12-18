@@ -1,5 +1,5 @@
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+#include "./inc/AForm.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 
 Bureaucrat::Bureaucrat(void) {}
@@ -66,10 +66,6 @@ void Bureaucrat::signForm(AForm& f) {
 }
 
 void Bureaucrat::executeForm(AForm const & form) {
-    if (!form.getSign()) {
-        std::cout << *this << " couldn't execute " << form.getName() << " because the form is not signed.\n";
-        return;
- a   }
     try {
         form.execute(*this);
         std::cout << *this << " executed " << form.getName() << "\n";

@@ -1,5 +1,5 @@
-#include "AForm.hpp"
-#include "Bureaucrat.hpp"
+#include "./inc/AForm.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
     if (gradeToSign < 1)

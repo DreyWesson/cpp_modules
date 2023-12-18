@@ -1,5 +1,5 @@
-#include "RobotomyRequestForm.hpp"
-#include "Bureaucrat.hpp"
+#include "./inc/RobotomyRequestForm.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm("RobotomyRequestForm", 72, 45), _target(target) {}
 

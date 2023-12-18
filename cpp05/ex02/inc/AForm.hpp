@@ -37,27 +37,27 @@ public:
 class AForm::GradeTooHighException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("GradeTooHighException: Grade is too high\n");
+        return ("Grade is too high\n");
     }
 };
 
 class AForm::GradeTooLowException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("GradeTooLowException: Grade is too low\n");
+        return ("Grade is too low\n");
     }
 };
 
 class AForm::FormNotSignedException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("FormNotSignedException: Form needs to be signed to be able to execute\n");
+        return ("Form needs to be signed to be able to execute\n");
     }
 };
 class AForm::FileOpenException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("FileOpenException: File fails to open\n");
+        return ("File fails to open\n");
     }
 };
 

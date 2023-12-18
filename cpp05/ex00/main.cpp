@@ -6,11 +6,11 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:59:45 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/15 19:41:24 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/18 14:50:56 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 void test_decrement() {
     Bureaucrat politico("Decepticon", 149);
