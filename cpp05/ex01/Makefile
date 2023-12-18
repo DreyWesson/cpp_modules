@@ -1,45 +1,50 @@
-NAME = form 
+NAME = form
+
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98
+DEPFLAGS = -MMD -MP
 
-
-# Del
 RM = rm -rf
 
+MKDIR = mkdir -p
 
-# DIRECTORIES
-SRC =	$(wildcard *.cpp **/*.cpp **/*/*.cpp)
 OBJ_DIR = obj
-SRC_DIR = src
+DEP_DIR = dep
 INC_DIR = inc
+
+SRC = $(wildcard *.cpp) $(wildcard **/*.cpp) $(wildcard **/*/*.cpp)
+
 OBJS = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
-
-# COLOURS
 NONE='\033[0m'
 GREEN='\033[32m'
-GRAY='\033[2;37m'
 CURSIVE='\033[3m'
-WARNING='\033[33m'
-DANGER='\033[31m'
+GRAY='\033[2;37m'
 
 all: $(NAME)
 
+-include $(wildcard $(DEP_DIR)/*.d)
+INC_FLAGS = -I$(INC_DIR)
+
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(CFLAGS) -o $@ 
+	@$(CC) $(OBJS) $(CFLAGS) -o $(NAME)
 	@echo $(GREEN)"- Compiled -"$(NONE)
 
-$(OBJ_DIR)/%.o: %.cpp 
+$(OBJ_DIR)/%.o: %.cpp
 	@echo $(CURSIVE) "     - Building $<" $(NONE)
-	@mkdir -p $(dir $@)
-	@$(CC) $(CFLAGS) -c $< -o $@
+	@$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $(DEP_DIR)
+	@$(CC) $(CFLAGS) $(DEPFLAGS) $(INC_FLAGS) -c $< -o $@
+	@mv $(OBJ_DIR)/$*.d $(DEP_DIR)/
+# @echo "Dependencies for $*:" 	# uncomment this to debug your dependencies
+# @cat $(DEP_DIR)/$*.d			# uncomment this to debug your dependencies
 
 clean:
-	@$(RM) $(OBJS) $(OBJ_DIR) > /dev/null || true
-	@echo $(CURSIVE)$(GRAY) "     - Object files removed" $(NONE)
+	@$(RM) $(OBJS) $(OBJ_DIR) $(DEP_DIR) > /dev/null || true
+	@echo $(CURSIVE)$(GRAY) "     - Object files, dependencies, and $(NAME) removed" $(NONE)
 
 fclean: clean
-	@rm -f $(NAME) > /dev/null || true
+	@$(RM) $(NAME) > /dev/null || true
 	@echo $(CURSIVE)$(GRAY) "     - $(NAME) removed" $(NONE)
 
 re: fclean all

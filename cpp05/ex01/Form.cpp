@@ -1,5 +1,5 @@
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "./inc/Form.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
     std::cout << "\033[2;37m""\033[3m" "FORM parameterized constructor called\n" "\033[0m";

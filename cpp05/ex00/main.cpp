@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:59:45 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/18 14:50:56 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/18 17:00:56 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ void test_increment() {
 }
 int main(void) {
     try {
-        // Bureaucrat politico("bumble bee", 151);
-        // std::cout << politico;  
         // test_decrement();
         test_increment();
     } catch (Bureaucrat::GradeTooHighException& e) {

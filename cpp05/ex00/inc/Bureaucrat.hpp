@@ -19,27 +19,26 @@ public:
     Bureaucrat &operator=(const Bureaucrat &src);
     ~Bureaucrat(void);
 
-    
     const std::string getName(void) const;
     int getGrade(void) const;
     void increment(void);
     void decrement(void);
 
     class GradeTooHighException;
-    class GradeTooLowException;    
+    class GradeTooLowException;
 };
 
 class Bureaucrat::GradeTooHighException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any higher than these");
+        return ("Grade is too high. Cannot instantiate Bureaucrat.");
     }
 };
 
 class Bureaucrat::GradeTooLowException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any lower than these");
+        return ("Grade is too low. Cannot instantiate Bureaucrat.");
     }
 };
 

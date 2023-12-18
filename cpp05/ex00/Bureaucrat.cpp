@@ -10,14 +10,12 @@ Bureaucrat::Bureaucrat(const std::string name) : _name(name) {
     std::cout << "_name: " << _name << "\n";
 }
 
-Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
+Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name), _grade(grade) {
     std::cout << "\033[2;37m""\033[3m" "BUREAUCRAT parameterized constructor called\n" "\033[0m";
     if (grade < 1)
         throw Bureaucrat::GradeTooHighException();
     else if (grade > 150)
         throw Bureaucrat::GradeTooLowException();
-    else
-        this->_grade = grade;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -52,6 +50,7 @@ void Bureaucrat::decrement(void) {
         throw Bureaucrat::GradeTooLowException(); 
     this->_grade += 1;
 }
+
 
 std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
     std::cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";

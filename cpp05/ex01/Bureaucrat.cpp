@@ -1,5 +1,5 @@
-#include "Form.hpp"
-#include "Bureaucrat.hpp"
+#include "./inc/Form.hpp"
+#include "./inc/Bureaucrat.hpp"
 
 
 Bureaucrat::Bureaucrat(void) {
@@ -43,14 +43,14 @@ int Bureaucrat::getGrade(void) const {
 }
 
 void Bureaucrat::increment(void) {
-    if (this->_grade < 1)
+    if (this->_grade <= 1)
         throw Bureaucrat::GradeTooHighException();
     this->_grade -= 1;
 
 }
 
 void Bureaucrat::decrement(void) {
-    if (this->_grade > 150)
+    if (this->_grade >= 150)
         throw Bureaucrat::GradeTooLowException(); 
     this->_grade += 1;
 }
