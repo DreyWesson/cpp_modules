@@ -32,14 +32,14 @@ public:
 class Form::GradeTooHighException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any higher than these\n");
+        return ("Grade is too high. Cannot instantiate Bureaucrat.");
     }
 };
 
 class Form::GradeTooLowException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any lower than these\n");
+        return ("Grade is too low. Cannot instantiate Bureaucrat.");
     }
 };
 

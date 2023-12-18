@@ -11,7 +11,7 @@ void testBureaucratConstructor() {
         // Bureaucrat invalidHighGrade("InvalidHigh", 0);
 
         // Uncomment the line below to test GradeTooLowException
-        // Bureaucrat invalidLowGrade("InvalidLow", 160);
+    //     Bureaucrat invalidLowGrade("InvalidLow", 160);
     } catch (std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
     }
@@ -41,7 +41,6 @@ void testBureaucratIncrementDecrement() {
 
 void testFormConstructor() {
     try {
-        // Test Form constructor with valid and invalid grades
         Form validForm("Application Form", 75, 50);
         std::cout << validForm << std::endl;
 
@@ -87,11 +86,11 @@ void testBureaucratSignForm() {
 
 int main() {
     // Test different aspects of Bureaucrat and Form
-    testBureaucratConstructor();
-    testBureaucratIncrementDecrement();
+    // testBureaucratConstructor();
+    // testBureaucratIncrementDecrement();
     testFormConstructor();
-    testFormSigning();
-    testBureaucratSignForm();
+    // testFormSigning();
+    // testBureaucratSignForm();
 
     return 0;
 }

@@ -2,14 +2,15 @@
 #include "../inc/Bureaucrat.hpp"
 
 Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
-    if (gradeToSign < 1)
+    std::cout << gradeToSign << "DEBUG\n";
+    if (gradeToSign < 1 || gradeToExecute < 1) {
+
         throw Form::GradeTooHighException();
-    else if (gradeToSign > 150)
+    }
+    else if (gradeToSign > 150 || gradeToExecute > 150) {
+
         throw Form::GradeTooLowException();
-    if (gradeToExecute < 1)
-        throw Form::GradeTooHighException();
-    else if (gradeToExecute > 150)
-        throw Form::GradeTooLowException();
+    }
 }
 
 Form::~Form() {}
