@@ -35,14 +35,14 @@ public:
 class Bureaucrat::GradeTooHighException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any higher than these\n");
+       return ("Grade is too high\n");
     }
 };
 
 class Bureaucrat::GradeTooLowException : public std::exception {
 public:
     virtual const char* what() const throw() {
-        return ("You can't go any lower than these\n");
+        return ("Grade is too low\n");
     }
 };
 

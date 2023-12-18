@@ -1,7 +1,6 @@
 #include "./inc/AForm.hpp"
 #include "./inc/Bureaucrat.hpp"
 
-
 Bureaucrat::Bureaucrat(void) {}
 
 Bureaucrat::Bureaucrat(const std::string name) : _name(name) {}

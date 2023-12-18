@@ -1,3 +1,4 @@
+# Variables
 NAME = form
 
 CC = c++
@@ -5,15 +6,12 @@ CFLAGS = -Werror -Wall -Wextra -std=c++98
 DEPFLAGS = -MMD -MP
 
 RM = rm -rf
-
 MKDIR = mkdir -p
-
 OBJ_DIR = obj
 DEP_DIR = dep
 INC_DIR = inc
 
-SRC = $(wildcard *.cpp) $(wildcard **/*.cpp) $(wildcard **/*/*.cpp)
-
+SRC = $(wildcard *.cpp **/*.cpp **/*/*.cpp) 
 OBJS = $(SRC:%.cpp=$(OBJ_DIR)/%.o)
 
 NONE='\033[0m'
@@ -32,12 +30,12 @@ $(NAME): $(OBJS)
 
 $(OBJ_DIR)/%.o: %.cpp
 	@echo $(CURSIVE) "     - Building $<" $(NONE)
-	@$(MKDIR) $(OBJ_DIR)
+	@$(MKDIR) $(@D)
 	@$(MKDIR) $(DEP_DIR)
 	@$(CC) $(CFLAGS) $(DEPFLAGS) $(INC_FLAGS) -c $< -o $@
 	@mv $(OBJ_DIR)/$*.d $(DEP_DIR)/
-# @echo "Dependencies for $*:" 	# uncomment this to debug your dependencies
-# @cat $(DEP_DIR)/$*.d			# uncomment this to debug your dependencies
+# @echo "Dependencies for $*:" 					# uncomment this to debug your dependencies
+# @cat $(DEP_DIR)/$*.d							# uncomment this to debug your dependencies
 
 clean:
 	@$(RM) $(OBJS) $(OBJ_DIR) $(DEP_DIR) > /dev/null || true

@@ -1,8 +1,7 @@
-#include "./inc/Form.hpp"
-#include "./inc/Bureaucrat.hpp"
+#include "../inc/Form.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
-    std::cout << "\033[2;37m""\033[3m" "FORM parameterized constructor called\n" "\033[0m";
     if (gradeToSign < 1)
         throw Form::GradeTooHighException();
     else if (gradeToSign > 150)
@@ -13,10 +12,7 @@ Form::Form(const std::string name, int gradeToSign, int gradeToExecute) : _name(
         throw Form::GradeTooLowException();
 }
 
-Form::~Form()
-{
-    std::cout << "\033[2;37m""\033[3m" "FORM destructor called\n" "\033[0m";
-}
+Form::~Form() {}
 
 Form::Form(const Form &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
 

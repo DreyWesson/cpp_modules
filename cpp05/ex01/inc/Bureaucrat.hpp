@@ -20,7 +20,6 @@ public:
     ~Bureaucrat(void);
 
 	void signForm(Form &f);
-    
     const std::string getName(void) const;
     int getGrade(void) const;
     void increment(void);

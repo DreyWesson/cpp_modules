@@ -1,5 +1,6 @@
-obj/Form.o: Form.cpp inc/Form.hpp inc/Bureaucrat.hpp
+obj/src/Form.o: src/Form.cpp src/../inc/Form.hpp \
+  src/../inc/Bureaucrat.hpp
 
-inc/Form.hpp:
+src/../inc/Form.hpp:
 
-inc/Bureaucrat.hpp:
+src/../inc/Bureaucrat.hpp:

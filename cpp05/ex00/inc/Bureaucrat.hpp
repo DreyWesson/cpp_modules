@@ -23,7 +23,6 @@ public:
     int getGrade(void) const;
     void increment(void);
     void decrement(void);
-
     class GradeTooHighException;
     class GradeTooLowException;
 };
