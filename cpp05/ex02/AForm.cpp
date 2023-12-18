@@ -25,9 +25,8 @@ void AForm::checkPermission(Bureaucrat const & executor) const
 AForm::AForm(const AForm &src) : _name(src._name), _gradeToSign(src._gradeToSign), _gradeToExecute(src._gradeToExecute) {}
 
 AForm &AForm::operator=(const AForm &src) {
-    if (this != &src) {
+    if (this != &src)
         this->_isSigned = src.getSign();
-    }
     return (*this);
 }
 
@@ -54,9 +53,6 @@ void AForm::beSigned(const Bureaucrat &b) {
     _isSigned = true;
 }
 
-/**
- * Overloaded Insertion Operators
-*/
 std::ostream & operator<<(std::ostream &cout, AForm const & src) {
     cout << "#############################################\n";
     cout << "#            AForm's Information\n";
@@ -66,5 +62,4 @@ std::ostream & operator<<(std::ostream &cout, AForm const & src) {
     cout << "#############################################\n";
     return (cout);
 }
-
 
