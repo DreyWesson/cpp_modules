@@ -46,7 +46,6 @@ int main() {
             bureaucrat.signForm(*rrf);
         } catch (const std::exception& e) {
             std::cerr << "Error signing the form: " << e.what() << std::endl;
-            delete rrf;
             return 1;
         }
 
@@ -56,11 +55,12 @@ int main() {
         } catch (const std::exception& e) {
             std::cerr << "Error executing the form: " << e.what() << std::endl;
         }
-
         delete rrf;
     } else {
         std::cerr << "Error creating the form." << std::endl;
     }
+
+
     // invalidForms();
     // validforms();
     return 0;
