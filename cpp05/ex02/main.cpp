@@ -20,10 +20,10 @@ void executeFormsTest(Bureaucrat& bureaucrat) {
 
     (void)bureaucrat;
     // Try to execute forms without signing
-    // bureaucrat.executeForm(shrubberyForm);
+    bureaucrat.executeForm(shrubberyForm);
     // bureaucrat.executeForm(robotomyForm);
     // bureaucrat.executeForm(pardonForm);
-    std::cout << "\n";
+    // std::cout << "\n";
 
     // Sign the forms
     // bureaucrat.signForm(shrubberyForm);

@@ -22,12 +22,16 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const {
             ? std::cout << _target << " has been robotomized successfully!\n"
             : std::cout << "Robotomy failed for " << _target << ".\n";  
     } catch (const AForm::GradeTooLowException & e) {
-        std::cerr << "GradeTooLowException: " << e.what() << std::endl;
+        std::cerr << "GradeTooLowException: " << e.what();
+        throw;
     } catch (const AForm::FormNotSignedException & e) {
-        std::cerr << "FormNotSignedException: " << e.what() << std::endl;
+        std::cerr << "FormNotSignedException: " << e.what();
+        throw;
     } catch (const AForm::FileOpenException & e) {
-        std::cerr << "FileOpenException: " << e.what() << std::endl;
+        std::cerr << "FileOpenException: " << e.what();
+        throw;
     } catch (const std::exception & e) {
-        std::cerr << e.what() << '\n';
+        std::cerr << e.what();
+        throw;
     }
 }
