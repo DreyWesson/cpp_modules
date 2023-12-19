@@ -1,5 +1,17 @@
-#include "./inc/AForm.hpp"
-#include "./inc/Bureaucrat.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/19 12:38:26 by doduwole          #+#    #+#             */
+/*   Updated: 2023/12/19 12:38:44 by doduwole         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../inc/AForm.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute) : _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _isSigned(false) {
     if (gradeToSign < 1)
@@ -62,4 +74,3 @@ std::ostream & operator<<(std::ostream &cout, AForm const & src) {
     cout << "#############################################\n";
     return (cout);
 }
-

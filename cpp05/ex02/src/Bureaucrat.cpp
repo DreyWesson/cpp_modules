@@ -1,9 +1,7 @@
-#include "./inc/AForm.hpp"
-#include "./inc/Bureaucrat.hpp"
+#include "../inc/AForm.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 Bureaucrat::Bureaucrat(void) {}
-
-Bureaucrat::Bureaucrat(const std::string name) : _name(name) {}
 
 Bureaucrat::Bureaucrat(const std::string name, int grade) : _name(name) {
     if (grade < 1)
@@ -45,9 +43,6 @@ void Bureaucrat::decrement(void) {
     this->_grade += 1;
 }
 
-/**
- * Overloaded Insertion Operators
-*/
 std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
     cout << src.getName() << ", bureaucrat grade " << src.getGrade();
     return (cout);

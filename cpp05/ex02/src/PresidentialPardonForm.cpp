@@ -1,5 +1,5 @@
-#include "./inc/PresidentialPardonForm.hpp"
-#include "./inc/Bureaucrat.hpp"
+#include "../inc/PresidentialPardonForm.hpp"
+#include "../inc/Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm("PresidentialPardonForm", 25, 5), _target(target) {}
 
@@ -15,9 +15,8 @@ PresidentialPardonForm::~PresidentialPardonForm() {}
 
 void PresidentialPardonForm::execute(Bureaucrat const & executor) const {
     try {
-    checkPermission(executor);
-
-    std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
+        checkPermission(executor);
+        std::cout << _target << " has been pardoned by Zaphod Beeblebrox\n";
     } catch (const AForm::GradeTooLowException & e) {
         std::cerr << "GradeTooLowException: " << e.what();
         throw;
