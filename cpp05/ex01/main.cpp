@@ -3,14 +3,11 @@
 
 void testBureaucratConstructor() {
     try {
-        // Test Bureaucrat constructor with valid and invalid grades
         Bureaucrat validBureaucrat("John", 50);
         std::cout << validBureaucrat << std::endl;
 
-        // Uncomment the line below to test GradeTooHighException
         // Bureaucrat invalidHighGrade("InvalidHigh", 0);
 
-        // Uncomment the line below to test GradeTooLowException
     //     Bureaucrat invalidLowGrade("InvalidLow", 160);
     } catch (std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
@@ -19,7 +16,6 @@ void testBureaucratConstructor() {
 
 void testBureaucratIncrementDecrement() {
     try {
-        // Test Bureaucrat increment and decrement functions
         Bureaucrat validBureaucrat("John", 50);
         std::cout << validBureaucrat << std::endl;
 
@@ -29,10 +25,8 @@ void testBureaucratIncrementDecrement() {
         validBureaucrat.decrement();
         std::cout << validBureaucrat << std::endl;
 
-        // Uncomment the lines below to test GradeTooHighException on increment
         // validBureaucrat.increment();
 
-        // Uncomment the lines below to test GradeTooLowException on decrement
         // validBureaucrat.decrement();
     } catch (std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
@@ -44,10 +38,8 @@ void testFormConstructor() {
         Form validForm("Application Form", 75, 50);
         std::cout << validForm << std::endl;
 
-        // Uncomment the line below to test GradeTooHighException for signing
         // Form invalidSignGrade("InvalidSignGrade", 160, 50);
 
-        // Uncomment the line below to test GradeTooLowException for signing
         // Form invalidSignGrade("InvalidSignGrade", 75, 0);
     } catch (std::exception &e) {
         std::cerr << "Exception: " << e.what() << std::endl;
@@ -85,7 +77,6 @@ void testBureaucratSignForm() {
 }
 
 int main() {
-    // Test different aspects of Bureaucrat and Form
     // testBureaucratConstructor();
     // testBureaucratIncrementDecrement();
     testFormConstructor();
