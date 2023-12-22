@@ -59,8 +59,6 @@ int main() {
     } else {
         std::cerr << "Error creating the form." << std::endl;
     }
-
-
     // invalidForms();
     // validforms();
     return 0;

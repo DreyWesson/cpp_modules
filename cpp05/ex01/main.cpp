@@ -77,11 +77,11 @@ void testBureaucratSignForm() {
 }
 
 int main() {
-    // testBureaucratConstructor();
-    // testBureaucratIncrementDecrement();
+    testBureaucratConstructor();
+    testBureaucratIncrementDecrement();
     testFormConstructor();
-    // testFormSigning();
-    // testBureaucratSignForm();
+    testFormSigning();
+    testBureaucratSignForm();
 
     return 0;
 }

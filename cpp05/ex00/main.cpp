@@ -6,7 +6,7 @@
 /*   By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/12 12:59:45 by doduwole          #+#    #+#             */
-/*   Updated: 2023/12/18 21:05:22 by doduwole         ###   ########.fr       */
+/*   Updated: 2023/12/19 16:44:16 by doduwole         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ void test_increment() {
 }
 int main(void) {
     try {
-        // test_decrement();
-        test_increment();
+        test_decrement();
+        //test_increment();
     } catch (Bureaucrat::GradeTooHighException& e) {
         std::cout << e.what() << std::endl;
     } catch (Bureaucrat::GradeTooLowException& e) {

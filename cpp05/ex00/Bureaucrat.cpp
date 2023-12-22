@@ -56,3 +56,7 @@ std::ostream & operator<<(std::ostream &cout, Bureaucrat const & src) {
     std::cout << src.getName() << ", bureaucrat grade " << src.getGrade() << "\n";
     return (cout);
 }
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return ("Grade is too high. Cannot instantiate Bureaucrat.");
+}

@@ -29,9 +29,7 @@ public:
 
 class Bureaucrat::GradeTooHighException : public std::exception {
 public:
-    virtual const char* what() const throw() {
-        return ("Grade is too high. Cannot instantiate Bureaucrat.");
-    }
+    virtual const char* what() const throw();
 };
 
 class Bureaucrat::GradeTooLowException : public std::exception {

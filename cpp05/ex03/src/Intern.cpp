@@ -35,7 +35,7 @@ AForm* Intern::makeForm(const std::string formName, const std::string target) {
     // }
     // std::cout << "Error: Unknown form name \"" << formName << "\"\n";
     // return NULL;
-        try {
+    try {
         std::string nameList[] = {
             "robotomy request",
             "presidential pardon",
