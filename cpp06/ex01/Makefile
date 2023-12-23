@@ -1,5 +1,5 @@
 # Variables
-NAME = form
+NAME = serialize
 
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98

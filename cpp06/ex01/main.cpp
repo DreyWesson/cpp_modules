@@ -2,21 +2,30 @@
 
 int main()
 {
-    Data *originalData = new Data;
-    originalData->intValue = 42;
-    originalData->stringValue = "hello_world";
+    Data *data = new Data;
+    data->stringValue = "Wolfsburg";
+    data->intValue = 65;
 
-    uintptr_t serialized = Serializer::serialize(originalData);
+    uintptr_t serialized = Serializer::serialize(data);
     Data* deserializedData = Serializer::deserialize(serialized);
 
-	std::cout << std::endl;
-    std::cout << "original data address: " << &originalData << std::endl;
-    std::cout << "after serialization: " << deserializedData << std::endl;
-    std::cout << "deserialized content: " << deserializedData->intValue << " " \
-    << deserializedData->stringValue << std::endl;
-	std::cout << std::endl;
+    std::cout << "data: " << data << std::endl;
+    std::cout << "serialized: " << deserializedData << std::endl;
+    std::cout << "deserialized: " << deserializedData->intValue << " " << deserializedData->stringValue << std::endl;
 
-    delete originalData;
+    delete data;
+    std::cout << std::endl;
+
+    data = NULL;
+
+    serialized = Serializer::serialize(data);
+    deserializedData = Serializer::deserialize(serialized);
+
+    std::cout << "Test Case 2:" << std::endl;
+    std::cout << "data: " << data << std::endl;
+    std::cout << "serialize: " << deserializedData << std::endl;
+    std::cout << "deserialized: " << deserializedData << std::endl;
+    std::cout << std::endl;
 
     return 0;
 }

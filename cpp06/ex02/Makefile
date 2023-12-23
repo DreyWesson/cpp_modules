@@ -1,5 +1,5 @@
 # Variables
-NAME = form
+NAME = identity
 
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98
