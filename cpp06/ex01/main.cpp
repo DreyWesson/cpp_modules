@@ -17,15 +17,10 @@ int main()
     std::cout << std::endl;
 
     data = NULL;
-
     serialized = Serializer::serialize(data);
     deserializedData = Serializer::deserialize(serialized);
-
-    std::cout << "Test Case 2:" << std::endl;
     std::cout << "data: " << data << std::endl;
     std::cout << "serialize: " << deserializedData << std::endl;
     std::cout << "deserialized: " << deserializedData << std::endl;
-    std::cout << std::endl;
-
     return 0;
 }

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: drey <drey@student.42.fr>                  +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/23 15:36:23 by drey              #+#    #+#             */
+/*   Updated: 2023/12/23 15:36:24 by drey             ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Base.hpp"
 #include "A.hpp"
 #include "B.hpp"
@@ -31,7 +43,6 @@ void identify(Base *p)
         std::cout << " - pointer is null" << std::endl;
         return;
     }
-
     if (dynamic_cast<A *>(p))
         std::cout << p << " - pointer of type: A" << std::endl;
     else if (dynamic_cast<B *>(p))
@@ -44,25 +55,6 @@ void identify(Base *p)
 
 void identify(Base &p)
 {
-    // try {
-    //     A   &Aptr = dynamic_cast<A &>(p);
-    //     std::cout << &Aptr << " - reference of type: A" << std::endl;
-    // }
-    // catch(std::exception &e) {
-    //     try {
-    //         B   &Bptr = dynamic_cast<B &>(p);
-    //         std::cout << &Bptr << " - reference of type: B" << std::endl;
-    //     }
-    //     catch(std::exception &e) {
-    //         try {
-    //             C   &Cptr = dynamic_cast<C &>(p);
-    //             std::cout << &Cptr << " - reference of type: C" << std::endl;
-    //         }
-    //         catch(const std::exception& e) {
-    //             std::cerr << e.what() << " - cannot identify reference type" << std::endl;
-    //         }
-    //     }
-    // }
     try {
         A &Aptr = dynamic_cast<A&>(p);
         std::cout << &Aptr << " - reference of type: A" << std::endl;
