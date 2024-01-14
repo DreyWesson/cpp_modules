@@ -6,23 +6,22 @@ Span::Span(unsigned int N) : _N(N) {}
 
 Span::~Span() {}
 
-Span::Span(const Span &that) : _N(that._N), _vec(that._vec) {}
+Span::Span(const Span &cpy) : _N(cpy._N), _vec(cpy._vec) {}
 
 Span &Span::operator=(const Span &obj)
 {
     if (this != &obj)
     {
-        _N = obj._N;
-        _vec = obj._vec;
+        this->_N = obj._N;
+        this->_vec.clear();
+        this->_vec.insert(this->_vec.begin(), obj._vec.begin(), obj._vec.end());
     }
-    return *this;
+    return (*this);
 }
 
 void Span::addNumber(int number)
 {
-    if (_vec.size() >= _N)
-        throw MaxSizeException();
-    _vec.push_back(number);
+    (_vec.size() >= _N) ? throw MaxSizeException() : _vec.push_back(number);
 }
 
 int Span::shortestSpan()
@@ -59,9 +58,7 @@ void Span::fillConsecutiveNumbers()
 {
     std::vector<int> consecutiveNumbers(_N);
     for (unsigned int i = 0; i < _N; i++)
-    {
         consecutiveNumbers[i] = i;
-    }
     addRange(consecutiveNumbers.begin(), consecutiveNumbers.end());
 }
 
@@ -86,27 +83,23 @@ void Span::fillRandomNumbers()
 
 void Span::printElements()
 {
-    int idx = 0;
     if (_vec.empty())
-        std::cout << "Seems Vector is empty\n";
+        std::cout << "Vector is empty\n";
     else
     {
         std::cout << "Vector elements:\n";
         for (std::vector<int>::iterator it = _vec.begin(); it != _vec.end(); it++)
-        {
             std::cout << *it << " ";
-            idx++;
-        }
         std::cout << std::endl;
     }
 }
 
 const char *Span::MaxSizeException::what() const throw()
 {
-    return (">>>>> exception: max size reached <<<<<");
+    return ("max size reached!");
 }
 
 const char *Span::NoSpanException::what() const throw()
 {
-    return (">>>>> exception: no span <<<<<");
+    return ("no span!");
 }

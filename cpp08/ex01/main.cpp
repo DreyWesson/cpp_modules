@@ -38,6 +38,10 @@ void testExceptions()
         Span emptySpan(0);
         emptySpan.shortestSpan(); // Should throw NoSpanException
     }
+    catch (const Span::NoSpanException &e)
+    {
+        std::cerr << "NoSpanException: " << e.what() << "\n";
+    }
     catch (const std::exception &e)
     {
         std::cerr << "Exception: " << e.what() << "\n";
@@ -51,6 +55,10 @@ void testExceptions()
         span.addNumber(3);
         span.addNumber(4); // Should throw MaxSizeException
     }
+    catch (const Span::MaxSizeException &e)
+    {
+        std::cerr << "MaxSizeException: " << e.what() << "\n";
+    }
     catch (const std::exception &e)
     {
         std::cerr << "Exception: " << e.what() << "\n";
@@ -63,6 +71,5 @@ int main()
     testConsecutiveNumbers();
     testRandomNumbers();
     testExceptions();
-
     return 0;
 }
