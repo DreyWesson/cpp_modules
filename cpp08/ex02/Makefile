@@ -3,15 +3,15 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: doduwole <doduwole@student.42.fr>          +#+  +:+       +#+         #
+#    By: drey <drey@student.42.fr>                  +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/23 15:38:11 by drey              #+#    #+#              #
-#    Updated: 2023/12/26 17:35:46 by doduwole         ###   ########.fr        #
+#    Updated: 2024/01/14 20:10:06 by drey             ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # Variables
-NAME = array
+NAME = mutant_stack
 
 CC = c++
 CFLAGS = -Werror -Wall -Wextra -std=c++98
