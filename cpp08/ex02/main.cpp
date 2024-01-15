@@ -2,67 +2,65 @@
 #include <iostream>
 #include <list>
 
-void testMutantStack(MutantStack<int>& container) {
-    container.push(5);
-    container.push(17);
+void testMutantStack() {
+    MutantStack<int> mstack;
+    mstack.push(5);
+    mstack.push(17);
+    std::cout << "Topmost: " << mstack.top() << std::endl;
+    mstack.pop();
+    std::cout << "New-Top: " << mstack.top() << std::endl;
+    std::cout << "Size: " << mstack.size() << std::endl;
 
-    std::cout << "Top element: " << container.top() << std::endl;
-    container.pop();
-
-    std::cout << "Container size: " << container.size() << std::endl;
-
-    container.push(3);
-    container.push(5);
-    container.push(737);
-    container.push(0);
-
-    std::cout << "Container elements:" << std::endl;
-    MutantStack<int>::iterator it = container.begin();
-    MutantStack<int>::iterator ite = container.end();
-    while (it != ite) {
-        std::cout << *it << " ";
+    mstack.push(3);
+    mstack.push(5);
+    mstack.push(737);
+    mstack.push(0);
+    MutantStack<int>::iterator it = mstack.begin();
+    MutantStack<int>::iterator ite = mstack.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
         ++it;
     }
-    std::cout << std::endl;
-
-    std::cout << "Is the container empty? " << (container.empty() ? "Yes" : "No") << std::endl;
+    std::stack<int> s(mstack);
 }
 
-// Test function for std::list
-void testStdList(std::list<int>& container) {
-    container.push_back(5);
-    container.push_back(17);
+void testStdList() {
+    std::list<int> xlist;
 
-    // std::list doesn't have 'top' and 'pop' functions
-    std::cout << "Container size: " << container.size() << std::endl;
+    xlist.push_back(5);
+    xlist.push_back(17);
+    std::cout << "Topmost: " << xlist.back() << std::endl;
+    xlist.pop_back();
+    std::cout << "New-Top: " << xlist.back() << std::endl;
+    std::cout << "Size: " << xlist.size() << std::endl;
 
-    container.push_back(3);
-    container.push_back(5);
-    container.push_back(737);
-    container.push_back(0);
-
-    std::cout << "Container elements:" << std::endl;
-    std::list<int>::iterator it = container.begin();
-    std::list<int>::iterator ite = container.end();
-    while (it != ite) {
-        std::cout << *it << " ";
+    xlist.push_back(3);
+    xlist.push_back(5);
+    xlist.push_back(737);
+    xlist.push_back(0);
+    std::list<int>::iterator it = xlist.begin();
+    std::list<int>::iterator ite = xlist.end();
+    ++it;
+    --it;
+    while (it != ite)
+    {
+        std::cout << *it << std::endl;
         ++it;
     }
-    std::cout << std::endl;
 
-    std::cout << "Is the container empty? " << (container.empty() ? "Yes" : "No") << std::endl;
 }
 
 int main() {
-    // Test with MutantStack
-    MutantStack<int> mutantStack;
     std::cout << "==== Test with MutantStack ====" << std::endl;
-    testMutantStack(mutantStack);
+    testMutantStack();
 
-    // Test with std::list
-    std::list<int> stdList;
+    std::cout << std::endl;
+
     std::cout << "==== Test with std::list ====" << std::endl;
-    testStdList(stdList);
+    testStdList();
 
     return 0;
 }
