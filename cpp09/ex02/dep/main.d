@@ -1,3 +1,3 @@
-obj/main.o: main.cpp PMergeMe.hpp
+obj/main.o: main.cpp inc/PMergeMe.hpp
 
-PMergeMe.hpp:
+inc/PMergeMe.hpp:
