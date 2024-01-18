@@ -1,75 +1,106 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
-#include <iterator>
+#include <deque>
 #include <ctime>
+#include <iomanip>
 
-// Custom implementation of std::next for C++98
-template <typename Iterator, typename Distance>
-Iterator next(Iterator iter, Distance n) {
-    std::advance(iter, n);
-    return iter;
+class PmergeMe {
+public:
+    template <typename Container>
+    static void sort(Container& container);
+
+private:
+    template <typename Container>
+    static void merge(Container& container, int start, int mid, int end);
+
+    template <typename Container>
+    static void insertSort(Container& container, int start, int end);
+
+    template <typename Container>
+    static void mergeInsertSort(Container& container, int start, int end);
+};
+
+
+template <typename Container>
+void PmergeMe::sort(Container& container) {
+    mergeInsertSort(container, 0, container.size() - 1);
 }
 
-// Function to merge two sorted halves of a vector
-template <typename Iterator>
-void merge(Iterator first, Iterator middle, Iterator last) {
-    typedef typename std::iterator_traits<Iterator>::value_type ValueType;
-    std::vector<ValueType> left(first, middle);
-    std::vector<ValueType> right(middle, last);
+template <typename Container>
+void PmergeMe::merge(Container& container, int start, int mid, int end) {
+    int i, j, k;
+    int n1 = mid - start + 1;
+    int n2 = end - mid;
 
-    typename std::vector<ValueType>::iterator leftIt = left.begin();
-    typename std::vector<ValueType>::iterator rightIt = right.begin();
-    Iterator current = first;
+    Container left(container.begin() + start, container.begin() + start + n1);
+    Container right(container.begin() + mid + 1, container.begin() + mid + 1 + n2);
 
-    while (leftIt != left.end() && rightIt != right.end()) {
-        if (*leftIt < *rightIt) {
-            *current++ = *leftIt++;
-        } else {
-            *current++ = *rightIt++;
-        }
+    i = 0;
+    j = 0;
+    k = start;
+
+    while (i < n1 && j < n2) {
+        if (left[i] <= right[j])
+            container[k++] = left[i++];
+        else
+            container[k++] = right[j++];
     }
 
-    // Copy the remaining elements, if any
-    std::copy(leftIt, left.end(), current);
-    std::copy(rightIt, right.end(), current);
+    while (i < n1)
+        container[k++] = left[i++];
+
+    while (j < n2)
+        container[k++] = right[j++];
 }
 
-// Recursive function for merge-insertion sort
-template <typename Iterator>
-void merge_insertion_sort_impl(Iterator first, Iterator last) {
-    typedef typename std::iterator_traits<Iterator>::difference_type DifferenceType;
-    DifferenceType size = std::distance(first, last);
-    if (size < 2) return;
+template <typename Container>
+void PmergeMe::insertSort(Container& container, int start, int end) {
+    for (int i = start + 1; i <= end; ++i) {
+        typename Container::value_type key = container[i];
+        int j = i - 1;
 
-    Iterator middle = next(first, size / 2); // Using custom next function
+        for (; j >= start && container[j] > key; --j)
+            container[j + 1] = container[j];
 
-    merge_insertion_sort_impl(first, middle);
-    merge_insertion_sort_impl(middle, last);
-
-    merge(first, middle, last);
+        container[j + 1] = key;
+    }
 }
 
-// Wrapper function for merge-insertion sort
-template <typename Iterator>
-void merge_insertion_sort(Iterator first, Iterator last) {
-    merge_insertion_sort_impl(first, last);
+template <typename Container>
+void PmergeMe::mergeInsertSort(Container& container, int start, int end) {
+    if (start < end) {
+        if (end - start < 10)
+            insertSort(container, start, end);
+        else {
+            int mid = start + (end - start) / 2;
+            mergeInsertSort(container, start, mid);
+            mergeInsertSort(container, mid + 1, end);
+
+            merge(container, start, mid, end);
+        }
+    }
 }
 
-int main(int argc, char *argv[]) {
-    // Check if there are enough command-line arguments
+void printDuration(double duration) {
+    std::cout << "Time to process: ";
+    std::cout << std::fixed << std::setprecision(3) << duration * 1e3 << " us\n";
+}
+
+int main(int argc, char* argv[]) {
     if (argc < 2) {
         std::cerr << "Error: Insufficient arguments\n";
         return 1;
     }
 
-    // Parse command-line arguments into a vector of positive integers
     std::vector<int> original_sequence;
+    std::deque<int> original_sequence_copy;
+
     try {
         for (int i = 1; i < argc; ++i) {
             int value = std::atoi(argv[i]);
             if (value > 0) {
                 original_sequence.push_back(value);
+                original_sequence_copy.push_back(value);
             } else {
                 throw std::invalid_argument("Negative value encountered");
             }
@@ -79,49 +110,32 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-    // Copy the original sequence for later comparison
-    std::vector<int> original_copy = original_sequence;
-
-    // Display the unsorted sequence
     std::cout << "\033[31m""\033[1m""Before: ""\033[0m";
     for (std::vector<int>::const_iterator it = original_sequence.begin(); it != original_sequence.end(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 
-    // Measure time to process data management part
     clock_t start_data = clock();
-
-    // Perform sorting using merge-insertion sort
-    merge_insertion_sort(original_sequence.begin(), original_sequence.end());
-
+    PmergeMe::sort(original_sequence);
     clock_t end_data = clock();
-    double duration_data = static_cast<double>(end_data - start_data) / CLOCKS_PER_SEC * 1000000;
+    double duration_data = static_cast<double>(end_data - start_data) / CLOCKS_PER_SEC;
 
-    // Display the sorted sequence
     std::cout << "\033[1m""\033[32m""After: ""\033[0m";
     for (std::vector<int>::const_iterator it = original_sequence.begin(); it != original_sequence.end(); ++it) {
         std::cout << *it << " ";
     }
     std::cout << std::endl;
 
-    // Measure time to process sorting part
     clock_t start_sorting = clock();
-
-    // Restore the original sequence for re-sorting
-    original_sequence = original_copy;
-
-    // Perform sorting again using merge-insertion sort
-    merge_insertion_sort(original_sequence.begin(), original_sequence.end());
-
+    PmergeMe::sort(original_sequence_copy);
     clock_t end_sorting = clock();
-    double duration_sorting = static_cast<double>(end_sorting - start_sorting) / CLOCKS_PER_SEC * 1000000;
+    double duration_sorting = static_cast<double>(end_sorting - start_sorting) / CLOCKS_PER_SEC;
 
-    // Display timing information
-    std::cout << "Time to process a range of " << original_sequence.size() << " elements with std::vector: "
-              << duration_data << " us\n";
-    std::cout << "Time to process a range of " << original_sequence.size() << " elements with std::vector: "
-              << duration_sorting << " us\n";
+    std::cout << "Time to process a range of " << original_sequence.size() << " elements with std::vector: ";
+    printDuration(duration_data);
+    std::cout << "Time to process a range of " << original_sequence.size() << " elements with std::deque: ";
+    printDuration(duration_sorting);
 
     return 0;
 }

@@ -70,7 +70,8 @@
     "clocale": "cpp",
     "variant": "cpp",
     "filesystem": "cpp",
-    "list": "cpp"
+    "list": "cpp",
+    "*.tpp": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",
