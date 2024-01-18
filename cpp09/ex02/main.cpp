@@ -14,8 +14,7 @@ int main(int argc, char* argv[]) {
     PmergeMe sorter;
     try {
         sorter.parseInput(argc, argv);
-        std::cout << "\033[31m""\033[1m""Before: ""\033[0m";
-		sorter.printContainer(); 
+		sorter.printContainer("\033[31m""\033[1m""Before: ""\033[0m"); 
 		
 		std::clock_t start_vec = std::clock();
 		sorter.sortVector();
@@ -25,8 +24,7 @@ int main(int argc, char* argv[]) {
 		sorter.sortDeque();
 		std::clock_t end_deq = std::clock();
 		
-        std::cout << "\033[1m""\033[32m""After: ""\033[0m";
-		sorter.printContainer();
+		sorter.printContainer("\033[1m""\033[32m""After: ""\033[0m");
         double  vecTime = static_cast<double>(end_vec - start_vec) / CLOCKS_PER_SEC;
 
         printDuration(vecTime, sorter.getVecSize());

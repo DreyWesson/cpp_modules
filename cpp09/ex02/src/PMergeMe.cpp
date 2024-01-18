@@ -4,11 +4,7 @@ PmergeMe::PmergeMe() {}
 
 PmergeMe::~PmergeMe() {}
 
-PmergeMe::PmergeMe(const PmergeMe &src)
-{
-	_vec = src._vec;
-	_deq = src._deq;
-}
+PmergeMe::PmergeMe(const PmergeMe &src) : _vec(src._vec), _deq(src._deq) {}
 
 PmergeMe& PmergeMe::operator=(const PmergeMe &src)
 {
@@ -17,11 +13,11 @@ PmergeMe& PmergeMe::operator=(const PmergeMe &src)
 	return (*this);
 }
 
-void PmergeMe::parseInput(int ac, char **av)
+void PmergeMe::parseInput(int argc, char **argv)
 {
-	for (int i = 1; i < ac; ++i)
+	for (int i = 1; i < argc; ++i)
     {
-		std::stringstream ss(av[i]);
+		std::stringstream ss(argv[i]);
 		int nb = 0;
 		
 		if (!(ss >> nb) || !ss.eof()) 
@@ -33,15 +29,14 @@ void PmergeMe::parseInput(int ac, char **av)
 	}
 }
 
-void PmergeMe::printContainer()
-{
-	for(size_t i = 0; i < _vec.size(); i++)
-    {
-		std::cout << _vec[i] << " ";
-		if (_vec[i] != _deq[i])
-			throw ErrorException();
-	}
-	std::cout << "\n";
+void PmergeMe::printContainer(const std::string& message) {
+    std::cout << message;
+    for (size_t i = 0; i < _vec.size(); ++i) {
+        std::cout << _vec[i] << " ";
+        if (_vec[i] != _deq[i])
+            throw ErrorException();
+    }
+    std::cout << "\n";
 }
 
 void PmergeMe::sortVector()

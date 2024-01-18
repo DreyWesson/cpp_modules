@@ -18,7 +18,7 @@ public:
     PmergeMe& operator=(const PmergeMe &src);
 
     void parseInput(int ac, char **av);
-    void printContainer();
+    void printContainer(const std::string& message);
     void sortVector();
     void sortDeque();
     int getVecSize();
