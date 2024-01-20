@@ -1,4 +1,4 @@
-#include "RPN.hpp"
+#include "./RPN.hpp"
 
 RPN::RPN() {}
 
