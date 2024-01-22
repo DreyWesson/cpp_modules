@@ -71,7 +71,11 @@
     "variant": "cpp",
     "filesystem": "cpp",
     "list": "cpp",
-    "*.tpp": "cpp"
+    "*.tpp": "cpp",
+    "__tree": "cpp",
+    "map": "cpp",
+    "numeric": "cpp",
+    "set": "cpp"
   },
   "C_Cpp_Runner.msvcBatchPath": "",
   "C_Cpp_Runner.cCompilerPath": "clang",
